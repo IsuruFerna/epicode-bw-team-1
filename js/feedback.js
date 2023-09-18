@@ -1,4 +1,3 @@
-// function that fill the color of stars
 const markStars = function (scope, num) {
    const eachStar = scope.querySelectorAll("svg");
 
@@ -14,6 +13,7 @@ const markStars = function (scope, num) {
 };
 
 let divStars = document.querySelector("#stars");
+let clicked = false;
 
 // simulate 10 stars in the div #stars
 for (let i = 0; i < 10; i++) {
@@ -27,9 +27,17 @@ for (let i = 0; i < 10; i++) {
    // append each star to the div
    divStars.appendChild(star);
 
-   //  handle event when user click on stars
-   star.addEventListener("click", (event) => {
+   //  on handle mouseover event until user not click on any star
+   star.addEventListener("mouseover", () => {
+      if (!clicked) {
+         markStars(divStars, i);
+      }
+   });
+
+   //  if user click on any star color all the stars before and disable mouseover event
+   star.addEventListener("click", () => {
       markStars(divStars, i);
+      clicked = true;
    });
 
    //  default color of the stars are't filled(a sort of blue: #0b113b)
