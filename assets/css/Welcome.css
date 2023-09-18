@@ -1,19 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@700&display=swap');
 
 main {
     padding-left: 120px;
 }
 
-h1, h2 {
-    font-family: 'Outfit', sans-serif;
-   
-}
 h1{
-    
     line-height: 0.8em;
     padding-top: 100px;
     padding-bottom: 50px;
     font-size: 80px;
+    
 }
 
 h2 {
@@ -39,8 +34,6 @@ button {
 }
 
 p{
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
     line-height: 1.4em;
 }
 ul{
@@ -53,14 +46,12 @@ li,label{
     font-size: 16px;
     line-height: 2em;
 }
-span {
-font-weight: 1000;
-}
-.bold {
-font-weight: 1000;
+#bold{
+    font-weight: 900;
 }
 
-.mark{
+
+input[type="checkbox"]{
     display: none;  
 }
 label::before{
@@ -74,3 +65,4 @@ label::before{
     top:5px;
     right: 5px;
 }
+
