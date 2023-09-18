@@ -1,6 +1,6 @@
 main{
     text-align: center;
-    margin-top: 100px;
+    margin: 50px 0;
 }
 
 div:first-child > h2{
@@ -24,19 +24,20 @@ h3{
     font-size: 1.2em;
 }
 
-.passedNotPassed{
-    border-radius: 100%;
-    border: 50px solid #00ffffff;;
-    float:left;
-    width: 300px;;
-    height:300px;
+#mainContent div:nth-of-type(2){
+    display: inline-block;
 }
 
-/* .circleDiv{
-    width: 33%;
-} */
+.passedNotPassed{
+    border-radius: 100%;
+    border: 50px solid;
+    border-color: #00ffff #d20094 #00ffff #00ffff ;
+    width: 300px;;
+    height:300px;
+    box-shadow: 0 0 70px 9px black, 0 0 70px 9px black inset;
+}
 
-.passedNotPassed >div{
+.passedNotPassed > div{
     margin-top: 80px;
     padding-right: 35px;
     padding-left: 35px;
@@ -44,18 +45,30 @@ h3{
     margin-right: 10px
 }
 
+.passedNotPassed > div:first-of-type > h3:first-of-type{
+    margin-top: -25px;
+}
+
 .correct{
-    float:left;
+    display: inline-block;
     /* background:Red; */
     width:33.33%;
     height:280px;
 }
 
 .wrong{
-    float:right;
+    display: inline-block;
     /* background:blue; */
     width:33.33%;
     height:280px;
+}
+
+.cyanH3{
+    color: #00ffff;
+}
+
+.cyanH3 + p:first-of-type{
+    padding-top: 22px;
 }
 
 button{
@@ -63,6 +76,30 @@ button{
     width: 210px;
     height: 60px;
     font-size: 1.2em;
-    color: white;
-    box-shadow: 0 0 50px #3E2872, 0 0 5px #00ffff;
+    border: 1px solid #ffffff;
+    color:#ffffff;
+    box-shadow: 0 0 70px 50px #3E2872, 0 0 70px 5px #00ffff;
+}
+
+button:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+.percentage{
+    width: 25%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.percentage > p:first-of-type{
+    font-size: 3em;
+}
+
+.correctPercentage{
+    text-align: left;
+}
+
+.wrongPercentage{
+    text-align: right;
 }
