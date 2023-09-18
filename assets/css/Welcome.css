@@ -1,7 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@600&display=swap');
+
 main {
     padding-left: 120px;
 }
 
+h1, h2 {
+    font-family: 'Outfit', sans-serif;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #C2138d
+}
+
 button {
-    background-color: #02FFFF;
+    background-color: #00FFFF;
+    border: none;
+    height: 50px;
+    width: 200px;
+    color: #0B113B;
+    font-size: 22px;
+    font-weight: 1000;
+    font-family: 'Outfit', sans-serif;
+    box-shadow: -moz-box-shadow: 0 0 25px #00FFFF;
+    -webkit-box-shadow:0 0 25px #00FFFF;
+     box-shadow: 0 0 25px #00FFFF;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+}
+
+span {
+font-weight: 900;
 }
