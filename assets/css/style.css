@@ -17,8 +17,20 @@ p{
     font-size: 16px;
 }
 
-#epicode_logo{
-    width: 200px;
-    padding-left: 120px;
-    padding-top: 50px;
+#epicode_logo {
+   width: 200px;
+   padding-left: 120px;
+   padding-top: 50px;
+}
+
+.stars-inline {
+   display: inline-block;
+}
+
+.stars-not-filled {
+   fill: #0b113b;
+}
+
+.stars-filled {
+   fill: #00ffff;
 }
