@@ -20,12 +20,52 @@
       <div id="mainContent">
         <div class="correct">
           <h2>Correct</h2>
-          <div class="percentage correctPercentage">
+          <div class="percentage correctPercentage" id="correctPercentage">
             <p>66.7%</p>
             <p>4/6 questions</p>
           </div>
         </div>
         <div class="circleDiv">
+          <div class="passedNotPassed">
+            <svg width="350" height="350">
+              <circle
+                cx="175"
+                cy="175"
+                r="150"
+                stroke="#d20094"
+                stroke-width="50"
+                fill="none"
+              />
+              <circle
+                cx="175"
+                cy="175"
+                r="150"
+                stroke="#00ffff"
+                stroke-width="50"
+                fill="none"
+              />
+              <text
+                x="50%"
+                y="50%"
+                text-anchor="middle"
+                fill="white"
+                font-size="16px"
+              >
+                <tspan x="50%" y="30%" dy="1.2em">Congratulations!</tspan>
+                <tspan x="50%" dy="1.2em" class="cyanH3">
+                  You passed the exam
+                </tspan>
+                <tspan x="50%" dy="1.2em">
+                  We'll send you the certificate in few minutes.
+                </tspan>
+                <tspan x="50%" dy="1.2em">
+                  Check your email (including promotions/spam folder)
+                </tspan>
+              </text>
+            </svg>
+          </div>
+        </div>
+        <!-- <div class="circleDiv">
           <div class="passedNotPassed">
             <div>
               <h3>Congratulations!</h3>
@@ -36,10 +76,10 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="wrong">
           <h2>Wrong</h2>
-          <div class="percentage wrongPercentage">
+          <div class="percentage wrongPercentage" id="wrongPercentage">
             <p>33.3%</p>
             <p>2/6 questions</p>
           </div>
@@ -47,7 +87,9 @@
       </div>
       <div>
         <form>
-          <button><h3>Rate us</h3></button>
+          <button>
+            <a href="feedback.html"><h3>Rate us</h3></a>
+          </button>
         </form>
       </div>
     </main>
