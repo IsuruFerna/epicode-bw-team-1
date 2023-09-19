@@ -43,3 +43,4 @@ for (let i = 0; i < 10; i++) {
    //  default color of the stars are't filled(a sort of blue: #0b113b)
    star.childNodes[0].classList.add("stars-not-filled");
 }
+/* commento */
