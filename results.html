@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/results.css" />
-    <title>Document</title>
+    <title>Results</title>
   </head>
   <body>
     <header>
@@ -20,9 +20,9 @@
       <div id="mainContent">
         <div class="correct">
           <h2>Correct</h2>
-          <div class="percentage correctPercentage" id="correctPercentage">
-            <p>66.7%</p>
-            <p>4/6 questions</p>
+          <div class="percentage correctPercentage">
+            <p id="correctPercentage"></p>
+            <p id="correctQuestionsNumber"></p>
           </div>
         </div>
         <div class="circleDiv">
@@ -41,55 +41,32 @@
                   cx="175"
                   cy="175"
                   r="150"
-                  stroke="#00ffff"
+                  stroke="transparent"
                   stroke-width="50"
                   fill="none"
                 />
-                <!-- <text
-                x="50%"
-                y="50%"
-                text-anchor="middle"
-                fill="white"
-                font-size="16px"
-              >
-                <tspan x="50%" y="30%" dy="1.2em">Congratulations!</tspan>
-                <tspan x="50%" dy="1.2em" class="cyanH3">
-                  You passed the exam
-                </tspan>
-                <tspan x="50%" dy="1.2em">
-                  We'll send you the certificate in few minutes.
-                </tspan>
-                <tspan x="50%" dy="1.2em">
-                  Check your email (including promotions/spam folder)
-                </tspan>
-              </text> -->
+                <path
+                  id="colored-border"
+                  d=""
+                  fill="none"
+                  stroke="#00ffff"
+                  stroke-width="50"
+                />
               </svg>
               <div class="inner-circle-text">
-                <h3>Congratulations!</h3>
-                <h3 class="cyanH3">You passed the exam</h3>
-                <p>We'll send you the certificate in few minutes.</p>
-                <p>Check your email (including promotions/spam folder)</p>
+                <h3 id="message"></h3>
+                <h3 class="cyanH3"></h3>
+                <p id="certificate"></p>
+                <p id="checkEmail"></p>
               </div>
             </div>
           </div>
         </div>
-        <!-- <div class="circleDiv">
-          <div class="passedNotPassed">
-            <div>
-              <h3>Congratulations!</h3>
-              <h3 class="cyanH3">You passed the exam</h3>
-              <p>
-                We'll send you the certificate in few minutes. Check your email
-                (including promotions/spam folder)
-              </p>
-            </div>
-          </div>
-        </div> -->
         <div class="wrong">
           <h2>Wrong</h2>
-          <div class="percentage wrongPercentage" id="wrongPercentage">
-            <p>33.3%</p>
-            <p>2/6 questions</p>
+          <div class="percentage wrongPercentage">
+            <p id="wrongPercentage"></p>
+            <p id="wrongQuestionsNumber"></p>
           </div>
         </div>
       </div>
@@ -101,5 +78,6 @@
         </form>
       </div>
     </main>
+    <script src="js/results.js"></script>
   </body>
 </html>
