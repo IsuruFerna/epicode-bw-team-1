@@ -33,7 +33,8 @@ p {
 }
 
 .stars-not-filled {
-   fill: #0b113b;
+   /* fill: #0b113b; prima */
+   fill: #060924;
 }
 
 .stars-filled {
