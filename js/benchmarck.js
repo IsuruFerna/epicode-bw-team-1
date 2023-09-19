@@ -33,8 +33,8 @@ const startTimer = function () {
     tempoPassato++;
     tempoMancante = timeLimit - tempoPassato;
 
-    document.getElementById("timer-label").innerHTML =
-      tempoRimanente(tempoMancante);
+    document.getElementById("timer-label").innerHTML = `
+      <p>Seconds</p>${tempoRimanente(tempoMancante)}<p>Remainig</p>`;
     // aggiorno la funzione dentro lo span che visulazzia i secondi rimanenti
     setCircleDasharray();
     if (tempoMancante === 0) {
@@ -64,8 +64,8 @@ document.getElementById("base-timer").innerHTML = `
             ></path>
           </g>
         </svg>
-        <span id="timer-label" class="cTimer-label">${tempoRimanente(
+        <span id="timer-label" class="cTimer-label"><p>Seconds</p>${tempoRimanente(
           tempoMancante
-        )} </span>`;
+        )}<p>Remainig</p> </span>`;
 
 startTimer();
