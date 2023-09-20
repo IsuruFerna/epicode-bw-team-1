@@ -1,79 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@400&display=swap");
 p {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+   font-family: "Inter", sans-serif;
+   font-size: 16px;
 }
 body {
-    color: #ffffff;
-    background-image: url(../bg.jpg);
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
+   color: #ffffff;
+   background-image: url(../bg.jpg);
+   width: 100%;
+   height: 100vh;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   margin: 0;
 }
-.logo-container{
-    display: inline-block;
-    min-width: 75%;
-    max-width: 100%;
+.logo-container {
+   display: inline-block;
+   min-width: 75%;
+   max-width: 100%;
 }
-.logo-container img{
-width: 200px;
-    padding-left: 120px;
-    padding-top: 50px;
-    padding-bottom: 110px;
-
+.logo-container img {
+   width: 200px;
+   padding-left: 120px;
+   padding-top: 50px;
+   padding-bottom: 110px;
 }
 #base-timer {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    display: inline-block;  
+   position: relative;
+   width: 180px;
+   height: 180px;
+   display: inline-block;
 }
-.base-timer-cerchio{
-    fill:none;
-    stroke:none;
+.base-timer-cerchio {
+   fill: none;
+   stroke: none;
 }
-.base-timer-path{
-    stroke-width: 8px;
-    stroke: grey;
-    stroke-opacity: 0.7;
-}
-
-.cTimer-label{
-    position: absolute;
-    width: 185px;
-    height: 140px;
-    top: 20px;
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    font-size: 48px;
-}
-.cTimer-path{
-    stroke-width: 8px;
-    stroke-linecap: round;
-    transform: rotate(90deg);
-    transform-origin:center;
-    fill-rule: nonzero;
-    transition: 1s linear all;
-    
-    
+.base-timer-path {
+   stroke-width: 8px;
+   stroke: grey;
+   stroke-opacity: 0.7;
 }
 
-#timer-label p:nth-child(1){
-    font-size: 9px;
-    position:absolute;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    top: 30px;
+.cTimer-label {
+   position: absolute;
+   width: 185px;
+   height: 140px;
+   top: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 48px;
+}
+.cTimer-path {
+   stroke-width: 8px;
+   stroke-linecap: round;
+   transform: rotate(90deg);
+   transform-origin: center;
+   fill-rule: nonzero;
+   transition: 1s linear all;
+}
+
+#timer-label p:nth-child(1) {
+   font-size: 9px;
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   top: 30px;
 }
 #timer-label p:nth-child(2) {
-    font-size: 9px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 30px;
+   font-size: 9px;
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   bottom: 30px;
 }
