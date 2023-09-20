@@ -96,7 +96,7 @@ header{
 }
 #answer-container label{
    
-   border-top: 2px solid white; 
+    border-top: 2px solid white; 
    border-left: 1px solid white;
    border-right: 1px solid white;
    border-bottom: 1px solid  white;
@@ -112,6 +112,7 @@ header{
 #answer-container label:hover{
    background-color: rgb(178, 0, 136);
    border-color: rgb(243, 167, 224); 
+   border: 2px solid rgb(243, 167, 224);
    cursor: pointer;
 }
 
