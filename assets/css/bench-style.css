@@ -7,6 +7,7 @@ body {
     color: #ffffff;
     background-image: url(../bg.jpg);
     width: 100%;
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,6 +16,7 @@ body {
 header{
     margin-bottom: 40px;
 }
+
 .logo-container{
     display: inline-block;
     min-width: 75%;
@@ -89,16 +91,14 @@ width: 200px;
         margin-left: auto;
         margin-right: auto;
         height: 100%;
-        padding-left: 120px;
-        padding-right: 120px;;
+       
 }
 #answer-container{
     text-align: center;
     margin-left: auto;
         margin-right: auto;
         height: 100%;
-        padding-left: 120px;
-        padding-right: 120px;
+       
         ;
 }
 #answer-container label{
@@ -119,4 +119,24 @@ width: 200px;
 #answer-container input{
     display:none;
   
+}
+
+#qCont-Container{
+    margin: 5em 0em;
+    text-align: center;
+  
+}
+#container{
+    width: 800px;
+    padding: 0% 20%;
+}
+
+#qCont-Container p{
+    
+    letter-spacing: 3px;
+    display: inline-block;
+}
+p#cont{
+    color:#d20094;
+    letter-spacing: 0.5px;
 }

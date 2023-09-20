@@ -224,6 +224,7 @@ let punteggio = 0;
 const displayQuestion = function () {
   const question = document.getElementById("question-container");
   const ans = document.getElementById("answer-container");
+  const cont = document.getElementById("qCont-Container");
 
   question.textContent = questions[domandaCorrente].question;
   ans.innerHTML = "";
@@ -246,15 +247,18 @@ const displayQuestion = function () {
     if (i !== 0) {
       resetTimer();
     }
-    console.log(punteggio);
+    cont.innerHTML = `<p>QUESTION  ${domandaCorrente + 1}</p><p id="cont">/ ${
+      questions.length
+    }</p>`;
   }
 };
 
 displayQuestion();
 
-//const calcolaPunteggio(){
-//  const totalScore=document.getElementById
-//}
+const calcolaPunteggio = function () {
+  const totalScore = document.getElementById("score");
+  totalScore.textContent = `il tuo punteggio è ${punteggio}`;
+};
 const prossimaDomanda = function () {
   if (domandaCorrente < questions.length - 1) {
     domandaCorrente++;
@@ -262,6 +266,12 @@ const prossimaDomanda = function () {
   } else {
     document.getElementById("answer-container").remove();
     document.getElementById("question-container").remove();
+
+    let countAsString = punteggio.toString();
+    console.log(countAsString);
+
+    location.assign(`results.html?score=${countAsString}`);
+    //calcolaPunteggio();
   }
 };
 
@@ -272,6 +282,8 @@ const check = function () {
 
   if (questions[domandaCorrente].answer[rispostaSelezionata].corretto) {
     punteggio = punteggio += 1;
+    console.log("corretto");
+    console.log(punteggio);
     prossimaDomanda();
   } else {
     prossimaDomanda();
