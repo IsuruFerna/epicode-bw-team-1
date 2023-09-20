@@ -1,105 +1,128 @@
-main{
-    text-align: center;
-    margin: 50px 0;
+main {
+   text-align: center;
+   margin: 50px 0;
 }
 
-div:first-child > h2{
-    font-size: 2em;
-    font-weight: normal;
-    margin-top: 10px;
+div:first-child > h2 {
+   font-size: 2em;
+   font-weight: normal;
+   margin-top: 10px;
 }
 
-#mainContent{
-    margin-top: 100px;
-    width: 100%;
-    height: 500px;
+#mainContent {
+   width: 100%;
+   height: 500px;
 }
 
-#mainContent h2{
-    font-size: 3em;
-    font-weight: normal;
+#mainContent h2 {
+   font-size: 3em;
+   font-weight: normal;
 }
 
-h3{
-    font-size: 1.2em;
+h3 {
+   font-size: 1.2em;
 }
 
-#mainContent div:nth-of-type(2){
-    display: inline-block;
+#mainContent div:nth-of-type(2) {
+   display: inline-block;
+   vertical-align: bottom;
 }
 
-.passedNotPassed{
-    border-radius: 100%;
-    border: 50px solid;
-    border-color: #00ffff #d20094 #00ffff #00ffff ;
-    width: 300px;;
-    height:300px;
-    box-shadow: 0 0 70px 9px black, 0 0 70px 9px black inset;
+a {
+   text-decoration: none;
+   color: #ffffff;
+   font-weight: bold;
 }
 
-.passedNotPassed > div{
-    margin-top: 80px;
-    padding-right: 35px;
-    padding-left: 35px;
-    margin-left: 10px;
-    margin-right: 10px
+.circle-svg {
+   position: relative;
 }
 
-.passedNotPassed > div:first-of-type > h3:first-of-type{
-    margin-top: -25px;
+.inner-circle-text {
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
 }
 
-.correct{
-    display: inline-block;
-    /* background:Red; */
-    width:33.33%;
-    height:280px;
+.inner-circle-text p {
+   padding: 0.2em;
+   font-size: 14px;
+   line-height: 20px;
 }
 
-.wrong{
-    display: inline-block;
-    /* background:blue; */
-    width:33.33%;
-    height:280px;
+.inner-circle-text h3 {
+   font-weight: bold;
 }
 
-.cyanH3{
-    color: #00ffff;
+.passedNotPassed > div {
+   margin-top: 80px;
+   padding-right: 35px;
+   padding-left: 35px;
+   margin-left: 10px;
+   margin-right: 10px;
 }
 
-.cyanH3 + p:first-of-type{
-    padding-top: 22px;
+.passedNotPassed > div:first-of-type > h3:first-of-type {
+   margin-top: -25px;
 }
 
-button{
-    background: none;
-    width: 210px;
-    height: 60px;
-    font-size: 1.2em;
-    border: 1px solid #ffffff;
-    color:#ffffff;
-    box-shadow: 0 0 70px 50px #3E2872, 0 0 70px 5px #00ffff;
+.correct {
+   display: inline-block;
+   width: 33.33%;
+   height: 280px;
 }
 
-button:hover{
+.wrong {
+   display: inline-block;
+   width: 33.33%;
+   height: 280px;
+}
+
+.cyanH3 {
+   color: #00ffff;
+}
+
+.pinkH3 {
+   color: #d20094;
+   padding-top: 5px;
+}
+
+.cyanH3 + p:first-of-type {
+   padding-top: 22px;
+}
+
+button {
+   background: none;
+   width: 210px;
+   height: 60px;
+   font-size: 1.2em;
+   border: 1px solid #ffffff;
+   color: #ffffff;
+   box-shadow: 0 0 70px 50px #3e2872, 0 0 70px 5px #00ffff;
+}
+
+/* button:hover{
     transform: scale(1.05);
     transition: 0.5s;
+  } */
+
+.percentage {
+   width: 25%;
+   margin: 0 auto;
+   font-weight: bold;
 }
 
-.percentage{
-    width: 25%;
-    margin: 0 auto;
-    font-weight: bold;
+.percentage > p:first-of-type {
+   font-size: 3em;
 }
 
-.percentage > p:first-of-type{
-    font-size: 3em;
+#correctQuestionsNumber {
+   text-align: left;
 }
 
-.correctPercentage{
-    text-align: left;
-}
-
-.wrongPercentage{
-    text-align: right;
+#wrongQuestionsNumber {
+   text-align: right;
 }
