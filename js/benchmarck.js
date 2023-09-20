@@ -13,7 +13,7 @@ const tempoRimanente = function (time) {
 };
 const resetTimer = function () {
   FULL_DASH_ARRAY = 220;
-  timeLimit = 60;
+  timeLimit = 8860;
   tempoPassato = 0;
   tempoMancante = timeLimit;
   intervallo = null;
