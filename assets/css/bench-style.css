@@ -112,8 +112,8 @@ header{
 #answer-container label:hover{
    background-color: rgb(178, 0, 136);
    border-color: rgb(219, 4, 165); 
-   border: 2px solid  rgb(219, 4, 165);
-   border-top-color: rgb(244, 99, 207);
+   border: 3px solid  rgb(219, 4, 165);
+   border-top-color: rgb(245, 118, 213);
    border-left:  rgb(250, 80, 207);
    border-right: rgb(250, 80, 207);
    cursor: pointer;
