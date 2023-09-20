@@ -236,8 +236,8 @@ const displayQuestion = function () {
     scelta.name = "answer";
     scelta.value = i;
     scelta.setAttribute("onclick", "check()");
-    scelta.setAttribute("id", "i");
-    etichetta.setAttribute("for", "i");
+    scelta.setAttribute("id", i);
+    etichetta.setAttribute("for", i);
     etichetta.textContent = questions[domandaCorrente].answer[i].testo;
 
     sceltaDiv.appendChild(scelta);
@@ -269,7 +269,7 @@ const check = function () {
   const rispostaSelezionata = parseInt(
     document.querySelector('input[name="answer"]:checked').value
   );
-  console.log(rispostaSelezionata);
+
   if (questions[domandaCorrente].answer[rispostaSelezionata].corretto) {
     punteggio = punteggio += 1;
     prossimaDomanda();
