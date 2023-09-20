@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Benchmark Page</title>
-      <link rel="stylesheet" href="assets/css/reset.css" />
-      <link rel="stylesheet" href="assets/css/bench-style.css" />
-   </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchmark Page</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/bench-style.css" />
+  </head>
 
-   <body>
-      <header>
-         <div class="logo-container">
-            <img src="assets/epicode_logo.png" alt="logo_EPICODE" />
-         </div>
-         <div id="base-timer"></div>
-      </header>
-      <main>
-         <div id="question-container">
-            <div id="button-conteiner">
-               <h2>This is a question?</h2>
-               <ul id="answers">
-                  <li>answer 1</li>
-                  <li>answer 2</li>
-                  <li>answer 3</li>
-                  <li>answer 4</li>
-               </ul>
-            </div>
-         </div>
-      </main>
-      <footer>
-         <div class="qCont-Container">DOMANDA 4/48</div>
-         <button type="button">PROSSIMA -></button>
-      </footer>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="assets/epicode_logo.png" alt="logo_EPICODE" />
+      </div>
+      <div id="base-timer"></div>
+    </header>
+    <main>
+      <div id="question-container">
+        <div id="button-conteiner">
+          <h2>This is <span class="span1">a question?</span></h2>
+          <div class="four-div">
+            <ul id="answers">
+              <!--
+              <div class="st-two">
+                <button class="btn-4"><li><span>answer 1</span></li></button>
+                <button class="btn-4"><li>answer 2</li></button>
+              </div>
+              <div class="nd-two">
+                <button class="btn-4"><li>answer 3</li></button>
+                <button class="btn-4"><li>answer 4</li></button>
+              </div>
+            -->
+              <div class="st-two">
+                <button class="btn-4"><li>answer 1</li></button>
+                <button class="btn-4"><li>answer 2</li></button>
+              </div>
+              <div class="nd-two">
+                <button class="btn-4"><li>answer 3</li></button>
+                <button class="btn-4"><li>answer 4</li></button>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="qCont-Container">QUESTION 1<span id="ten">/10</span></div>
+    </footer>
 
-      <script src="js/benchmarck.js"></script>
-   </body>
+    <script src="js/benchmarck.js"></script>
+  </body>
 </html>
