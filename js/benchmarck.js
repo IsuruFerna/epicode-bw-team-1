@@ -1,5 +1,5 @@
 let FULL_DASH_ARRAY = 220;
-let timeLimit = 60;
+let timeLimit = 20;
 let tempoPassato = 0;
 let tempoMancante = timeLimit;
 let intervallo = null;
@@ -13,7 +13,7 @@ const tempoRimanente = function (time) {
 };
 const resetTimer = function () {
   FULL_DASH_ARRAY = 220;
-  timeLimit = 60;
+  timeLimit = 21;
   tempoPassato = 0;
   tempoMancante = timeLimit;
   intervallo = null;
@@ -29,7 +29,7 @@ function calculateTimeFraction() {
 function setCircleDasharray() {
   const circleDasharray = `${(
     calculateTimeFraction() * FULL_DASH_ARRAY
-  ).toFixed(0)} 283`;
+  ).toFixed(0)} 220`;
   document
     .getElementById("timer-path")
     .setAttribute("stroke-dasharray", circleDasharray);
@@ -74,7 +74,7 @@ document.getElementById("base-timer").innerHTML = `
         <span id="timer-label" class="cTimer-label"><p>Seconds</p>${tempoRimanente(
           tempoMancante
         )}<p>Remainig</p> </span>`;
-startTimer();
+//startTimer();
 //
 //
 //Da qui funziona per le domande
@@ -239,6 +239,7 @@ const displayQuestion = function () {
     scelta.setAttribute("onclick", "check()");
     scelta.setAttribute("id", i);
     etichetta.setAttribute("for", i);
+    etichetta.classList.add("forCss");
     etichetta.textContent = questions[domandaCorrente].answer[i].testo;
 
     sceltaDiv.appendChild(scelta);
@@ -252,9 +253,10 @@ const displayQuestion = function () {
     }</p>`;
   }
 };
-
-displayQuestion();
-
+const start = function () {
+  startTimer();
+  displayQuestion();
+};
 const calcolaPunteggio = function () {
   const totalScore = document.getElementById("score");
   totalScore.textContent = `il tuo punteggio è ${punteggio}`;
@@ -289,3 +291,5 @@ const check = function () {
     prossimaDomanda();
   }
 };
+//displayQuestion();
+start();
