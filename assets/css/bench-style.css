@@ -7,20 +7,16 @@ body {
    color: #ffffff;
    background-image: url(../bg.jpg);
    width: 100%;
-   height: 100vh;
+   height: 100%;
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
    margin: 0;
-    color: #ffffff;
-    background-image: url(../bg.jpg);
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
 }
+header {
+   margin-bottom: 40px;
+}
+
 .logo-container {
    display: inline-block;
    min-width: 75%;
@@ -63,17 +59,8 @@ body {
    stroke-linecap: round;
    transform: rotate(90deg);
    transform-origin: center;
-   fill-rule: nonzero;
+
    transition: 1s linear all;
-.cTimer-path{
-    stroke-width: 8px;
-    stroke-linecap: round;
-    transform: rotate(90deg);
-    transform-origin:center;
-   
-    transition: 1s linear all;
-    
-    
 }
 
 #timer-label p:nth-child(1) {
@@ -93,60 +80,54 @@ body {
    bottom: 30px;
 }
 
-#question-container{
-    font-family: 'Outfit', sans-serif;
-        font-size: 45px;
-        text-align: center;
-        margin-bottom: 40px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 100%;
-       
+#question-container {
+   font-family: "Outfit", sans-serif;
+   font-size: 45px;
+   text-align: center;
+   margin-bottom: 40px;
+   margin-left: auto;
+   margin-right: auto;
+   height: 100%;
 }
-#answer-container{
-    text-align: center;
-    margin-left: auto;
-        margin-right: auto;
-        height: 100%;
-       
-        ;
+#answer-container {
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   height: 100%;
 }
-#answer-container label{
-    border: 1px solid grey;
-    display: inline-block;
-    margin: 10px 20px;
-    padding: 28px 60px 28px 60px;
-    width: 240px;
-    border-radius: 40px;
+#answer-container label {
+   border: 1px solid grey;
+   display: inline-block;
+   margin: 10px 20px;
+   padding: 28px 60px 28px 60px;
+   width: 240px;
+   border-radius: 40px;
 }
-#answer-container div{
-    display: inline-block;
+#answer-container div {
+   display: inline-block;
 }
 /*#answer-container div input[value="2"]{
     display: block;
     display: none;
 }*/
-#answer-container input{
-    display:none;
-  
+#answer-container input {
+   display: none;
 }
 
-#qCont-Container{
-    margin: 5em 0em;
-    text-align: center;
-  
+#qCont-Container {
+   margin: 5em 0em;
+   text-align: center;
 }
-#container{
-    width: 850px;
-    padding: 0% 20%;
+#container {
+   width: 850px;
+   padding: 0% 20%;
 }
 
-#qCont-Container p{
-    
-    letter-spacing: 3px;
-    display: inline-block;
+#qCont-Container p {
+   letter-spacing: 3px;
+   display: inline-block;
 }
-p#cont{
-    color:#d20094;
-    letter-spacing: 0.5px;
+p#cont {
+   color: #d20094;
+   letter-spacing: 0.5px;
 }
