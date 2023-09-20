@@ -50,7 +50,7 @@ if (percentCorrect >= 60) {
   checkEmail.innerText = 'Check your email (including promotions/spam folder)'
 } else {
   message.innerText = 'Too bad,'
-  passedNotPassed.innerText = "You didn't pass the exam"
+  passedNotPassed.innerText = "You didn't passed the exam"
   passedNotPassed.classList.replace('cyanH3', 'pinkH3')
 }
 
@@ -60,8 +60,8 @@ if (percentCorrect >= 60) {
 
 const percentageCorrectAnswers = document.querySelector('#correctPercentage')
 const percentageWrongAnswers = document.querySelector('#wrongPercentage')
-percentageCorrectAnswers.innerText = `${percentCorrect.toFixed(2)}%`
-percentageWrongAnswers.innerText = `${(100 - percentCorrect).toFixed(2)}%`
+percentageCorrectAnswers.innerText = `${percentCorrect.toFixed(1)}%`
+percentageWrongAnswers.innerText = `${(100 - percentCorrect).toFixed(1)}%`
 
 const correctAnswers = document.querySelector('#correctQuestionsNumber')
 correctAnswers.innerText = `${numberOfCorrectAnswers}/${totalAnswers} questions`

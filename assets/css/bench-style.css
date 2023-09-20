@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@400&display=swap");
 .container{
-  width: 1400px;
+  width: 1700px;
   margin-left: auto;
   margin-right: auto;
   
@@ -18,10 +18,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 header {
-  margin-bottom: 40px;
+  margin-bottom: 100px;
+  
 }
 
 .logo-container {
@@ -95,6 +98,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   height: 100%;
+  font-size: 2.5em;
 }
 #answer-container {
   display: inline-block;
@@ -106,11 +110,11 @@ header {
 }
 #answer-container label {
   text-align: center;
-  font-size: 1.8em;
+  font-size: 1.4em;
   margin: 20px;
   padding: 25px 60px 25px 60px;
-  width: 300px;
-  height: 30px;
+  width: 250px;
+  height: 20px;
   cursor: pointer;
   margin-right: 30px;
   color: white;
@@ -148,8 +152,10 @@ header {
   text-align: center;
 }
 #container {
+
   width: 1000px;
-  padding: 0% 20%;
+  padding: 0% 10%;
+  margin: 0 auto;
 }
 
 #qCont-Container p {

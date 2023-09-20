@@ -1,5 +1,6 @@
 main {
    padding-left: 120px;
+   
 }
 
 h1 {
@@ -70,13 +71,13 @@ input[type="checkbox"] {
 input[type="checkbox"]:after {
    content: " ";
    position: relative;
-   left: 30%;
-   top: 3%;
-   width: 30%; /* Increased from 15% */
-   height: 60%; /* Increased from 40% */
+   left: 40%;
+   top: -60%;
+   width: 10px; /* Increased from 15% */
+   height: 20px; /* Increased from 40% */
    border: solid #fff;
    border-width: 0 2px 2px 0;
-   transform: rotate(50deg);
+   transform: rotate(45deg);
    display: none;
 }
 
@@ -87,8 +88,8 @@ input[type="checkbox"]:checked:after {
 #myCheckbox {
    content: " ";
    display: inline-block;
-   height: 15px;
-   width: 15px;
+   height: 20px;
+   width:20px;
    border: 2px solid white;
    cursor: pointer;
    position: relative;

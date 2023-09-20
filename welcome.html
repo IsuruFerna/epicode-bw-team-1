@@ -9,39 +9,35 @@
     <title>Welcome Page</title>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <img src="./assets/epicode_logo.png" alt="logo" id="epicode_logo" />
-      </header>
-      <main>
-        <h1>Welcome to<br /><span id="bold">your exam</span></h1>
-        <h2>Instructions</h2>
-        <p>
-          We don't expect most engineers to know the answers to all of these<br />
-          questions, so don't worry if vou're unsure of a few of them.
-        </p>
-        <ul>
-          <li>
-            Each question is <span id="bold">timed</span> and can only spane
-            <span id="bold">answered once</span>.
-          </li>
-          <li>
-            Changing spanrowser taspan or opening other windows will
-            <span id="bold">invalidate the question</span>.
-          </li>
-          <li>
-            This exam will take approx. <span id="bold">0-5 minutes</span>.
-          </li>
-        </ul>
-        <form id="myForm">
-          <input id="myCheckbox" type="checkbox" required />
-          <label for="myCheckbox"
-            >I promise to answer myself without help from anyone</label
-          >
-          <button id="proceedButton" disabled>PROCEED</button>
-        </form>
-      </main>
-    </div>
+    <header>
+      <img src="./assets/epicode_logo.png" alt="logo" id="epicode_logo" />
+    </header>
+    <main>
+      <h1>Welcome to<br /><span id="bold">your exam</span></h1>
+      <h2>Instructions</h2>
+      <p>
+        We don't expect most engineers to know the answers to all of these<br />
+        questions, so don't worry if vou're unsure of a few of them.
+      </p>
+      <ul>
+        <li>
+          Each question is <span id="bold">timed</span> and can only spane
+          <span id="bold">answered once</span>.
+        </li>
+        <li>
+          Changing spanrowser taspan or opening other windows will
+          <span id="bold">invalidate the question</span>.
+        </li>
+        <li>This exam will take approx. <span id="bold">0-5 minutes</span>.</li>
+      </ul>
+      <form id="myForm">
+        <input id="myCheckbox" type="checkbox" required />
+        <label for="myCheckbox"
+          >I promise to answer myself without help from anyone</label
+        >
+        <button id="proceedButton" disabled>PROCEED</button>
+      </form>
+    </main>
     <script src="js/welcome.js"></script>
   </body>
 </html>

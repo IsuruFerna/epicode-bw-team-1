@@ -5,11 +5,11 @@ let tempoMancante = timeLimit;
 let intervallo = null;
 
 const tempoRimanente = function (time) {
-   let seconds = time;
-   if (seconds < 10) {
-      seconds = `0${seconds}`; //mette lo 0 davanti in numeri < di 10 - 09-08-07...
-   }
-   return `${seconds}`;
+  let seconds = time;
+  if (seconds < 10) {
+    seconds = `0${seconds}`; //mette lo 0 davanti in numeri < di 10 - 09-08-07...
+  }
+  return `${seconds}`;
 };
 const resetTimer = function () {
   FULL_DASH_ARRAY = 220;
@@ -19,25 +19,25 @@ const resetTimer = function () {
   intervallo = null;
 };
 const tempoFinito = function () {
-   clearInterval(intervallo);
-   console.log(intervallo);
+  clearInterval(intervallo);
+  console.log(intervallo);
 };
 function calculateTimeFraction() {
-   const x = tempoMancante / timeLimit;
-   return x - (1 / timeLimit) * (1 - x);
+  const x = tempoMancante / timeLimit;
+  return x - (1 / timeLimit) * (1 - x);
 }
 function setCircleDasharray() {
-   const circleDasharray = `${(
-      calculateTimeFraction() * FULL_DASH_ARRAY
-   ).toFixed(0)} 283`;
-   document
-      .getElementById("timer-path")
-      .setAttribute("stroke-dasharray", circleDasharray);
+  const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} 283`;
+  document
+    .getElementById("timer-path")
+    .setAttribute("stroke-dasharray", circleDasharray);
 }
 const startTimer = function () {
-   intervallo = setInterval(() => {
-      tempoPassato++;
-      tempoMancante = timeLimit - tempoPassato;
+  intervallo = setInterval(() => {
+    tempoPassato++;
+    tempoMancante = timeLimit - tempoPassato;
 
     document.getElementById("timer-label").innerHTML = `
       <p>Seconds</p>${tempoRimanente(tempoMancante)}<p>Remainig</p>`;
@@ -199,8 +199,8 @@ const questions = [
     correct_answer: "False",
     incorrect_answers: ["True"],
     answer: [
-      { testo: "False", corretto: true },
       { testo: "True", corretto: false },
+      { testo: "False", corretto: true },
     ],
   },
   {
@@ -229,11 +229,9 @@ const displayQuestion = function () {
   question.textContent = questions[domandaCorrente].question;
   ans.innerHTML = "";
   for (let i = 0; i < questions[domandaCorrente].answer.length; i++) {
-    const sceltaDiv = document.createElement("div"); 
+    const sceltaDiv = document.createElement("div");
     const scelta = document.createElement("input");
     const etichetta = document.createElement("label");
-  
-    
 
     scelta.type = "radio";
     scelta.name = "answer";
@@ -241,8 +239,7 @@ const displayQuestion = function () {
     scelta.setAttribute("onclick", "check()");
     scelta.setAttribute("id", i);
     etichetta.setAttribute("for", i);
-    
-    
+
     etichetta.textContent = questions[domandaCorrente].answer[i].testo;
 
     sceltaDiv.appendChild(scelta);
