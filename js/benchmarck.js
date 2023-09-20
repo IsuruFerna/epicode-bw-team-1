@@ -78,181 +78,301 @@ document.getElementById("base-timer").innerHTML = `
 //
 //
 //Da qui funziona per le domande
-const questions = [
-   {
-      type: "multiple",
+// const questions = [
+//    {
+//       type: "multiple",
 
-      question: "What does CPU stand for?",
-      correct_answer: "Central Processing Unit",
-      incorrect_answers: [
-         "Central Process Unit",
-         "Computer Personal Unit",
-         "Central Processor Unit",
-      ],
-      answer: [
-         { testo: "Central Process Unit", corretto: false },
-         { testo: "Central Processing Unit", corretto: true },
-         { testo: "Computer Personal Unit", corretto: false },
-         { testo: "Central Processor Unit", corretto: false },
-      ],
-   },
-   {
-      type: "multiple",
+//       question: "What does CPU stand for?",
+//       correct_answer: "Central Processing Unit",
+//       incorrect_answers: [
+//          "Central Process Unit",
+//          "Computer Personal Unit",
+//          "Central Processor Unit",
+//       ],
+//       answer: [
+//          { testo: "Central Process Unit", corretto: false },
+//          { testo: "Central Processing Unit", corretto: true },
+//          { testo: "Computer Personal Unit", corretto: false },
+//          { testo: "Central Processor Unit", corretto: false },
+//       ],
+//    },
+//    {
+//       type: "multiple",
 
-      question:
-         "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
-      correct_answer: "Final",
-      incorrect_answers: ["Static", "Private", "Public"],
-      answer: [
-         { testo: "Final", corretto: true },
-         { testo: "Static", corretto: false },
-         { testo: "Private", corretto: false },
-         { testo: "Public", corretto: false },
-      ],
-   },
-   {
-      type: "boolean",
+//       question:
+//          "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+//       correct_answer: "Final",
+//       incorrect_answers: ["Static", "Private", "Public"],
+//       answer: [
+//          { testo: "Final", corretto: true },
+//          { testo: "Static", corretto: false },
+//          { testo: "Private", corretto: false },
+//          { testo: "Public", corretto: false },
+//       ],
+//    },
+//    {
+//       type: "boolean",
 
-      question: "The logo for Snapchat is a Bell.",
-      correct_answer: "False",
-      incorrect_answers: ["True"],
-      answer: [
-         { testo: "True", corretto: false },
-         { testo: "False", corretto: true },
-      ],
-   },
-   {
-      type: "boolean",
+//       question: "The logo for Snapchat is a Bell.",
+//       correct_answer: "False",
+//       incorrect_answers: ["True"],
+//       answer: [
+//          { testo: "True", corretto: false },
+//          { testo: "False", corretto: true },
+//       ],
+//    },
+//    {
+//       type: "boolean",
 
-      question:
-         "Pointers were not used in the original C programming language; they were added later on in C++.",
-      correct_answer: "False",
-      incorrect_answers: ["True"],
-      answer: [
-         { testo: "True", corretto: false },
-         { testo: "False", corretto: true },
-      ],
-   },
-   {
-      category: "Science: Computers",
-      type: "multiple",
+//       question:
+//          "Pointers were not used in the original C programming language; they were added later on in C++.",
+//       correct_answer: "False",
+//       incorrect_answers: ["True"],
+//       answer: [
+//          { testo: "True", corretto: false },
+//          { testo: "False", corretto: true },
+//       ],
+//    },
+//    {
+//       category: "Science: Computers",
+//       type: "multiple",
 
-      question:
-         "What is the most preferred image format used for logos in the Wikimedia database?",
-      correct_answer: ".svg",
-      incorrect_answers: [".png", ".jpeg", ".gif"],
-      answer: [
-         { testo: ".svg", corretto: true },
-         { testo: ".png", corretto: false },
-         { testo: ".jpeg", corretto: false },
-         { testo: ".gif", corretto: false },
-      ],
-   },
-   {
-      type: "multiple",
+//       question:
+//          "What is the most preferred image format used for logos in the Wikimedia database?",
+//       correct_answer: ".svg",
+//       incorrect_answers: [".png", ".jpeg", ".gif"],
+//       answer: [
+//          { testo: ".svg", corretto: true },
+//          { testo: ".png", corretto: false },
+//          { testo: ".jpeg", corretto: false },
+//          { testo: ".gif", corretto: false },
+//       ],
+//    },
+//    {
+//       type: "multiple",
 
-      question: "In web design, what does CSS stand for?",
-      correct_answer: "Cascading Style Sheet",
-      incorrect_answers: [
-         "Counter Strike: Source",
-         "Corrective Style Sheet",
-         "Computer Style Sheet",
-      ],
-      answer: [
-         { testo: "Cascading Style Sheet", corretto: true },
-         { testo: "Counter Strike: Source", corretto: false },
-         { testo: "Corrective Style Sheet", corretto: false },
-         { testo: "Computer Style Sheet", corretto: false },
-      ],
-   },
-   {
-      type: "multiple",
+//       question: "In web design, what does CSS stand for?",
+//       correct_answer: "Cascading Style Sheet",
+//       incorrect_answers: [
+//          "Counter Strike: Source",
+//          "Corrective Style Sheet",
+//          "Computer Style Sheet",
+//       ],
+//       answer: [
+//          { testo: "Cascading Style Sheet", corretto: true },
+//          { testo: "Counter Strike: Source", corretto: false },
+//          { testo: "Corrective Style Sheet", corretto: false },
+//          { testo: "Computer Style Sheet", corretto: false },
+//       ],
+//    },
+//    {
+//       type: "multiple",
 
-      question:
-         "What is the code name for the mobile operating system Android 7.0?",
-      correct_answer: "Nougat",
-      incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
-      answer: [
-         { testo: "Nougat", corretto: true },
-         { testo: "Ice Cream Sandwich", corretto: false },
-         { testo: "Jelly Bean", corretto: false },
-         { testo: "Marshmallow", corretto: false },
-      ],
-   },
-   {
-      type: "multiple",
+//       question:
+//          "What is the code name for the mobile operating system Android 7.0?",
+//       correct_answer: "Nougat",
+//       incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
+//       answer: [
+//          { testo: "Nougat", corretto: true },
+//          { testo: "Ice Cream Sandwich", corretto: false },
+//          { testo: "Jelly Bean", corretto: false },
+//          { testo: "Marshmallow", corretto: false },
+//       ],
+//    },
+//    {
+//       type: "multiple",
 
-      question: "On Twitter, what is the character limit for a Tweet?",
-      correct_answer: "140",
-      incorrect_answers: ["120", "160", "100"],
-      answer: [
-         { testo: "140", corretto: true },
-         { testo: "120", corretto: false },
-         { testo: "160", corretto: false },
-         { testo: "100", corretto: false },
-      ],
-   },
-   {
-      type: "boolean",
+//       question: "On Twitter, what is the character limit for a Tweet?",
+//       correct_answer: "140",
+//       incorrect_answers: ["120", "160", "100"],
+//       answer: [
+//          { testo: "140", corretto: true },
+//          { testo: "120", corretto: false },
+//          { testo: "160", corretto: false },
+//          { testo: "100", corretto: false },
+//       ],
+//    },
+//    {
+//       type: "boolean",
 
-      question: "Linux was first created as an alternative to Windows XP.",
-      correct_answer: "False",
-      incorrect_answers: ["True"],
-      answer: [
-         { testo: "False", corretto: true },
-         { testo: "True", corretto: false },
-      ],
-   },
-   {
-      type: "multiple",
+//       question: "Linux was first created as an alternative to Windows XP.",
+//       correct_answer: "False",
+//       incorrect_answers: ["True"],
+//       answer: [
+//          { testo: "False", corretto: true },
+//          { testo: "True", corretto: false },
+//       ],
+//    },
+//    {
+//       type: "multiple",
 
-      question:
-         "Which programming language shares its name with an island in Indonesia?",
-      correct_answer: "Java",
-      incorrect_answers: ["Python", "C", "Jakarta"],
-      answer: [
-         { testo: "Java", corretto: true },
-         { testo: "Python", corretto: false },
-         { testo: "C", corretto: false },
-         { testo: "Jakarta", corretto: false },
-      ],
-   },
-];
+//       question:
+//          "Which programming language shares its name with an island in Indonesia?",
+//       correct_answer: "Java",
+//       incorrect_answers: ["Python", "C", "Jakarta"],
+//       answer: [
+//          { testo: "Java", corretto: true },
+//          { testo: "Python", corretto: false },
+//          { testo: "C", corretto: false },
+//          { testo: "Jakarta", corretto: false },
+//       ],
+//    },
+// ];
 
 let domandaCorrente = 0;
 let punteggio = 0;
+let arrQuestions = [];
+let difficulty = "easy";
+
 const displayQuestion = function () {
    const question = document.getElementById("question-container");
    const ans = document.getElementById("answer-container");
    const cont = document.getElementById("qCont-Container");
 
-   question.textContent = questions[domandaCorrente].question;
-   ans.innerHTML = "";
-   for (let i = 0; i < questions[domandaCorrente].answer.length; i++) {
-      const sceltaDiv = document.createElement("div");
-      const scelta = document.createElement("input");
-      const etichetta = document.createElement("label");
+   fetch(
+      `https://opentdb.com/api.php?amount=10&category=18&difficulty=${difficulty}`
+   )
+      .then((response) => response.json())
+      .then((questions) => {
+         // assigning all fetch data to a global array
+         arrQuestions = questions.results;
 
-      scelta.type = "radio";
-      scelta.name = "answer";
-      scelta.value = i;
-      scelta.setAttribute("onclick", "check()");
-      scelta.setAttribute("id", i);
-      etichetta.setAttribute("for", i);
-      etichetta.classList.add("forCss");
-      etichetta.textContent = questions[domandaCorrente].answer[i].testo;
+         // render question
+         question.textContent = arrQuestions[domandaCorrente].question;
+         ans.innerHTML = "";
 
-      sceltaDiv.appendChild(scelta);
-      sceltaDiv.appendChild(etichetta);
-      ans.appendChild(sceltaDiv);
-      if (i !== 0) {
-         resetTimer();
-      }
-      cont.innerHTML = `<p>QUESTION  ${domandaCorrente + 1}</p><p id="cont">/ ${
-         questions.length
-      }</p>`;
-   }
+         console.log(
+            "question: ",
+            arrQuestions[domandaCorrente].question,
+            "Answers: ",
+            arrQuestions[domandaCorrente].correct_answer,
+            arrQuestions[domandaCorrente].incorrect_answers
+         );
+
+         console.log("Type: ", arrQuestions[domandaCorrente].type);
+
+         // creating a list of correct answers and incorrect answers
+         let listCorrect = [];
+         if (typeof arrQuestions[domandaCorrente].correct_answer === "string") {
+            listCorrect = [arrQuestions[domandaCorrente].correct_answer];
+         } else {
+            listCorrect = [...arrQuestions[domandaCorrente].correct_answer];
+         }
+         let listIncorrect = [];
+         if (
+            typeof arrQuestions[domandaCorrente].incorrect_answers === "string"
+         ) {
+            listIncorrect = [arrQuestions[domandaCorrente].incorrect_answers];
+         } else {
+            listIncorrect = [
+               ...arrQuestions[domandaCorrente].incorrect_answers,
+            ];
+         }
+
+         // joining both correct and incorrect answers
+         // better if we can randomize the order of listAnswers
+         const listAnswers = [...listCorrect, ...listIncorrect];
+
+         // <form>
+         //    <fieldset id="group1">
+         //       <input type="radio" value="value1" name="group1">
+         //    </fieldset>
+
+         //    <fieldset id="group2">
+         //       <input type="radio" value="value1" name="group2">
+         //    </fieldset>
+
+         //    <fieldset id="group3">
+         //       <input type="radio" value="value1" name="group3">
+         //    </fieldset>
+
+         //    <fieldset id="group4">
+         //       <input type="radio" value="value1" name="group4">
+         //    </fieldset>
+         // </form>
+
+         //    window.onload = function() {
+         //       var form = document.getElementById('myForm');
+         //       var inputs = form.getElementsByTagName('input');
+         //       var maxChecked = 3;
+
+         //       for (var i = 0; i < inputs.length; i++) {
+         //           inputs[i].onclick = function() {
+         //               var checkedCount = 0;
+         //               for (var j = 0; j < inputs.length; j++) {
+         //                   checkedCount += inputs[j].checked ? 1 : 0;
+         //               }
+         //               if (checkedCount > maxChecked) {
+         //                   alert('You can only select ' + maxChecked + ' options.');
+         //                   return false;
+         //               }
+         //           }
+         //       }
+         //   }
+
+         // check clicked amount so we can target specific multiple selections
+         let checkedCount = 0;
+         let maxChecked = listCorrect.length;
+
+         // rendering each answer
+         for (let i = 0; i < listAnswers.length; i++) {
+            const sceltaDiv = document.createElement("div");
+            const scelta = document.createElement("input");
+            const etichetta = document.createElement("label");
+
+            scelta.type = "radio";
+            scelta.name = "answer";
+            scelta.value = i;
+            // scelta.setAttribute("onclick", "check()");
+            scelta.setAttribute("id", i);
+            etichetta.setAttribute("for", i);
+            etichetta.classList.add("forCss");
+            etichetta.textContent = listAnswers[i];
+
+            scelta.addEventListener("click", function () {
+               checkedCount += this.checked ? 1 : 0;
+            });
+
+            // this is temporary solution
+            // available if fieldsets are available
+            // if (checkedCount > maxChecked) {
+            //    alert(`You can select ${maxChecked} options!`);
+            // }
+
+            // ************** I can disable radio input button using css, "disabled" in html
+
+            // remove these 3 lines. only for testing
+            // const main = document.querySelector("main");
+            // const type = document.createElement("p");
+            // type.innerText = arrQuestions[domandaCorrente].type;
+            // main.appendChild(type);
+
+            console.log(arrQuestions.type);
+
+            if (arrQuestions[domandaCorrente].type === "multiple") {
+               const fieldset = document.createElement("fieldset");
+               fieldset.setAttribute("id", `group-${i}`);
+               sceltaDiv.appendChild(fieldset);
+               fieldset.appendChild(scelta);
+               fieldset.appendChild(etichetta);
+               console.log("fieldset: ", fieldset);
+            } else {
+               sceltaDiv.appendChild(scelta);
+               sceltaDiv.appendChild(etichetta);
+            }
+
+            ans.appendChild(sceltaDiv);
+            if (i !== 0) {
+               resetTimer();
+            }
+            cont.innerHTML = `<p>QUESTION  ${
+               domandaCorrente + 1
+            }</p><p id="cont">/ ${questions.length}</p>`;
+         }
+      });
 };
+
+// displayQuestion();
 const start = function () {
    startTimer();
    displayQuestion();
@@ -262,7 +382,7 @@ const calcolaPunteggio = function () {
    totalScore.textContent = `il tuo punteggio è ${punteggio}`;
 };
 const prossimaDomanda = function () {
-   if (domandaCorrente < questions.length - 1) {
+   if (domandaCorrente < arrQuestions.length - 1) {
       domandaCorrente++;
       displayQuestion();
    } else {
@@ -277,19 +397,21 @@ const prossimaDomanda = function () {
    }
 };
 
-const check = function () {
-   const rispostaSelezionata = parseInt(
-      document.querySelector('input[name="answer"]:checked').value
-   );
+// const check = function () {
+//    const rispostaSelezionata = parseInt(
+//       document.querySelector('input[name="answer"]:checked').value
+//    );
 
-   if (questions[domandaCorrente].answer[rispostaSelezionata].corretto) {
-      punteggio = punteggio += 1;
-      console.log("corretto");
-      console.log(punteggio);
-      prossimaDomanda();
-   } else {
-      prossimaDomanda();
-   }
-};
+//    // console.log(rispostaSelezionata);
+
+//    // if (questions[domandaCorrente].answer[rispostaSelezionata].corretto) {
+//    //    punteggio = punteggio += 1;
+//    //    console.log("corretto");
+//    //    console.log(punteggio);
+//    //    prossimaDomanda();
+//    // } else {
+//    //    prossimaDomanda();
+//    // }
+// };
 //displayQuestion();
 start();

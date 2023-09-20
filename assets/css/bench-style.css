@@ -111,7 +111,8 @@ header {
     display: none;
 }*/
 #answer-container input {
-   display: none;
+   /* display: none; */
+   display: block;
 }
 
 #qCont-Container {
@@ -130,4 +131,8 @@ header {
 p#cont {
    color: #d20094;
    letter-spacing: 0.5px;
+}
+
+input[type="radio"]:checked + label {
+   background-color: rebeccapurple;
 }
