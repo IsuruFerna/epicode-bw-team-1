@@ -166,76 +166,25 @@ const questions = [
    },
 ];
 
-const arrayType = [];
+// **************** RENDER QUESTIONS ***************************************************
 
-const arrayQuestion = [];
-
-for (let i = 0; i < questions.length; i++) {
-   const QuestionPush = questions[i].question;
-   const typePush = questions[i].type;
-
-   //  const answers = questions[i].incorrect_answers.push(
-   //     questions[i].correct_answer
-   //  );
-
-   //  ***********************************************
-   //  const answers = [
-   //     ...questions[i].incorrect_answers,
-   //     questions[i].correct_answer,
-   //  ];
-
-   //  const containerQuestion = document.getElementById("question-container");
-   //  const questionP = document.createElement("p");
-   //  questionP.innerHTML = QuestionPush;
-
-   //  let listOfAnswers = document.getElementById("answers");
-
-   //  answers.forEach((element) => {
-   //     console.log("these are answers: ", element);
-   //     const li = document.createElement("li");
-   //     li.innerHTML = element;
-   //     listOfAnswers.append(li);
-   //  });
-
-   //  containerQuestion.append(questionP);
-
-   // console.log("question: ", QuestionPush);
-   // console.log("answers: ", answers);
-   //  ***********************************************
-
-   // arrayQuestion.push(QuestionPush);
-   // arrayType.push(typePush);
-}
-console.log(arrayType);
-console.log(arrayQuestion);
-
-// arrayQuestion.forEach = (current) => {
-//    if (arrayType[i].type === "multiple") {
-//       document.getElementById(
-//          "question-container"
-//       ).innerHTML = `<h1>${arrayType[i].question}</h1>`;
-//    }
-// };
-// console.log(arrayQuestion);
-
-// const createButton = function (n) {
-//    const answerValue = n.shift();
-//    if (answerValue === "multiple") {
-//       document.getElementById(
-//          "button-conteiner"
-//       ).innerHTML = `<div><button type="radio">rispondi qui</button>
-//     `;
-//    }
-// };
-
-let questionNum = 0;
-let counter = 30;
-const renderQuestions = function () {
-   // define the time depends on question deficulty
-   if (questions[questionNum].difficulty === "easy") {
-      counter = 30;
+// define the time depends on question deficulty
+const timeDecider = function (num) {
+   if (questions[num].difficulty === "easy") {
+      counter = 15;
    }
 
+   return counter;
+};
+
+let questionNum = 0;
+let counter;
+counter = timeDecider(questionNum);
+
+let interValid;
+const ul = document.getElementById("answers");
+
+const renderQuestions = function () {
    // creating a list of correct answers and incorrect answers
    let listCorrect = [];
    if (typeof questions[questionNum].correct_answer === "string") {
@@ -258,7 +207,7 @@ const renderQuestions = function () {
 
    const questionRender = document.getElementById("question");
    const answerType = document.getElementById("answer-type");
-   const ul = document.getElementById("answers");
+   // const ul = document.getElementById("answers");
    questionRender.innerHTML = questions[questionNum].question;
    answerType.innerHTML =
       questions[questionNum].type === "multiple"
@@ -273,36 +222,49 @@ const renderQuestions = function () {
 
       // use event listener to check weather the answer is correct or wrong
       li.addEventListener("click", function () {
+         clearInterval(interValid);
          // remove all the answers and jump to the next question
          ul.innerHTML = "";
          questionNum++;
+         counter = timeDecider(questionNum);
          renderQuestions();
+         interValid = setInterval(count, 1000); // start a new interval
       });
       ul.appendChild(li);
    });
 
-   // if the user click on next button
+   // // if the user click on next button
    const btnNext = document.getElementById("btn-next");
    btnNext.addEventListener("click", function () {
+      clearInterval(interValid);
       ul.innerHTML = "";
       questionNum++;
+
+      // counter = 10; // reset counter
+      counter = timeDecider(questionNum);
       renderQuestions();
+      interValid = setInterval(count, 1000); // start a new interval
    });
-
-   // counter function we need to work with Giovanni
-   const count = function () {
-      counter--;
-
-      if (counter === 0 || counter < 0) {
-         ul.innerHTML = "";
-         questionNum++;
-         renderQuestions();
-      }
-      document.querySelector("#time").innerHTML = counter;
-   };
-
-   setInterval(count, 1000);
-   count();
 };
 
+// counter function we need to work with Giovanni
+const count = function () {
+   counter--;
+
+   document.querySelector("#time").innerHTML = counter;
+
+   if (counter === 0 || counter < 0) {
+      clearInterval(interValid);
+      ul.innerHTML = "";
+      questionNum++;
+
+      // reset counter
+      counter = timeDecider(questionNum);
+
+      renderQuestions();
+      interValid = setInterval(count, 1000); // start a new interval
+   }
+};
+
+interValid = setInterval(count, 1000);
 renderQuestions();
