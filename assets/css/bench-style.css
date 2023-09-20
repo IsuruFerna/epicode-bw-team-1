@@ -111,8 +111,11 @@ header{
 }
 #answer-container label:hover{
    background-color: rgb(178, 0, 136);
-   border-color: rgb(243, 167, 224); 
-   border: 2px solid rgb(243, 167, 224);
+   border-color: rgb(219, 4, 165); 
+   border: 2px solid  rgb(219, 4, 165);
+   border-top-color: rgb(244, 99, 207);
+   border-left:  rgb(250, 80, 207);
+   border-right: rgb(250, 80, 207);
    cursor: pointer;
 }
 
@@ -134,3 +137,6 @@ header{
    width: 800px;
 }
 
+label {
+   font-family: sans-serif;
+}
