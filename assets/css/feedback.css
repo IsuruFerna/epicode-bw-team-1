@@ -1,7 +1,7 @@
 
 .contain {
   padding-left: 200px;
-  width: 800px;
+  padding-right: 200px;
   display: block;
   text-align: center;
 }
@@ -27,14 +27,14 @@ input{
     background-color: transparent;
     border: none;
     text-align: left;
-    padding-left: 20px;
+    
     height: 30px;
-    width: 100%;
+    width: 60%;
     color: white;
      
 }
 hr{
-   
+   width: 60%;
    border:2px solid #C2138d;
    margin-bottom: 50px;
    
