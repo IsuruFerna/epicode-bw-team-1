@@ -75,3 +75,83 @@ body {
    justify-content: center;
    bottom: 30px;
 }
+
+#button-conteiner h2{
+text-align: center;
+font-size: 70px;
+font-family: 'Inter', sans-serif;
+}
+
+.span1 {
+font-weight: bolder;
+}
+
+.st-two {
+    display: inline-block;
+    margin-bottom: 1em;
+}
+.nd-two {
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+#answers {
+   list-style: none;
+    display: inline-block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.four-div {
+    margin-top: 4em;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-4 {
+  
+   cursor: pointer;
+   margin-right: 30px;
+   color: white;
+   display: inline-block;
+   width:300px;
+   height: 60px;
+   background: 
+   url(../bg.jpg)padding-box fixed, 
+   linear-gradient(to top,rgb(255, 255, 255, 0.1), white) border-box;
+   border: 5px solid transparent;
+   background-origin:border-box ;
+   border-radius: 30px;
+   
+ 
+   
+   transition: background-color 0.2s;
+  
+   &:hover{
+      color: white;
+      display: inline-block;
+      width:300px;
+      height: 60px;
+      
+      background: 
+      linear-gradient( #c2138d, #c2138d) padding-box, 
+      linear-gradient(to top,#db3cab, white) border-box;
+      border: 3px solid transparent;
+      border-radius: 30px;
+   }
+}
+
+.qCont-Container {
+ font-family: 'Inter', sans-serif;
+ text-align: center;
+ padding-top: 170px;
+ font-size: 18px;
+}
+
+#ten {
+    color: #c2138d;
+}
+
