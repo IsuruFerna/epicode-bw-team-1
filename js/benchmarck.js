@@ -1,5 +1,5 @@
 let FULL_DASH_ARRAY = 220;
-let timeLimit = 5000;
+let timeLimit = 60;
 let tempoPassato = 0;
 let tempoMancante = timeLimit;
 let intervallo = null;
@@ -13,7 +13,7 @@ const tempoRimanente = function (time) {
 };
 const resetTimer = function () {
   FULL_DASH_ARRAY = 220;
-  timeLimit = 5000;
+  timeLimit = 60;
   tempoPassato = 0;
   tempoMancante = timeLimit;
   intervallo = null;
