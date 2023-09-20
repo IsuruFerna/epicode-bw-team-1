@@ -13,10 +13,13 @@ body {
    background-size: cover;
    margin: 0;
 }
-.logo-container {
-   display: inline-block;
-   min-width: 75%;
-   max-width: 100%;
+header{
+    margin-bottom: 40px;
+}
+.logo-container{
+    display: inline-block;
+    min-width: 75%;
+    max-width: 100%;
 }
 .logo-container img {
    width: 200px;
@@ -74,4 +77,44 @@ body {
    align-items: center;
    justify-content: center;
    bottom: 30px;
+}
+
+#question-container{
+    font-family: 'Outfit', sans-serif;
+        font-size: 45px;
+        text-align: center;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        padding-left: 120px;
+        padding-right: 120px;;
+}
+#answer-container{
+    text-align: center;
+    margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        padding-left: 120px;
+        padding-right: 120px;
+        ;
+}
+#answer-container label{
+    border: 1px solid grey;
+    display: inline-block;
+    margin: 10px;
+    padding: 25px 60px 25px 60px;
+    width: 240px;
+    border-radius: 40px;
+}
+#answer-container div{
+    display: inline-block;
+}
+/*#answer-container div input[value="2"]{
+    display: block;
+    display: none;
+}*/
+#answer-container input{
+    display:none;
+  
 }
