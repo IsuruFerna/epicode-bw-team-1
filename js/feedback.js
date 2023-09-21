@@ -39,6 +39,11 @@ for (let i = 0; i < 10; i++) {
    //  if user click on any star color all the stars before and disable mouseover event
    star.addEventListener("click", () => {
       console.log("where is my click on: ", i);
+
+      const feedbackNum = document.getElementById("feedback-number");
+      feedbackNum.value = i;
+
+      console.log(feedbackNum);
       markStars(divStars, i);
       clicked = true;
    });
@@ -47,3 +52,17 @@ for (let i = 0; i < 10; i++) {
    star.childNodes[0].classList.add("stars-not-filled");
 }
 /* commento */
+
+const form = document.getElementById("form-feedback");
+form.addEventListener("submit", function (e) {
+   e.preventDefault();
+
+   // send this to server
+   const feedback = {
+      rate: form.getElementsByTagName("input")[0].value,
+      message: form.getElementsByTagName("input")[1].value,
+   };
+
+   console.log(feedback);
+   window.location = "https://www.epicode.com/";
+});
