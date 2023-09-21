@@ -1,7 +1,8 @@
 // Calcolo percentuale domande corrette
 const urlParams = new URLSearchParams(location.search)
 const scoreFromUrl = urlParams.get('score')
-const totalAnswers = 10
+const answersFromUrl = urlParams.get('amount')
+const totalAnswers = answersFromUrl
 const numberOfCorrectAnswers = scoreFromUrl
 const numberOfWrongAnswers = totalAnswers - numberOfCorrectAnswers
 const percentCorrect = (numberOfCorrectAnswers * 100) / totalAnswers

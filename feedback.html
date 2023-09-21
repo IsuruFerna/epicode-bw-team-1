@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Feedback</title>
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/feedback.css" />
@@ -20,10 +20,18 @@
       </p>
       <div id="stars"></div>
       <p>Leave us an open feedback about your experience so far</p>
-      <form>
-        <input type="text" placeholder="Write your comment here" required/>
+      <form id="form-feedback">
+        <input
+          id="feedback-number"
+          type="number"
+          min="1"
+          max="10"
+          required
+          style="display: none"
+        />
+        <input type="text" placeholder="Write your comment here" required />
         <hr />
-        <button type="submit"><a href="https://www.epicode.com/">MORE INFO</a></button>
+        <button type="submit">MORE INFO</button>
       </form>
     </main>
     <script src="js/feedback.js"></script>
