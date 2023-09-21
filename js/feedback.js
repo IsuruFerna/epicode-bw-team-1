@@ -41,7 +41,7 @@ for (let i = 0; i < 10; i++) {
       console.log("where is my click on: ", i);
 
       const feedbackNum = document.getElementById("feedback-number");
-      feedbackNum.value = i;
+      feedbackNum.value = i + 1;
 
       console.log(feedbackNum);
       markStars(divStars, i);
@@ -51,8 +51,8 @@ for (let i = 0; i < 10; i++) {
    //  default color of the stars are't filled(a sort of blue: #0b113b)
    star.childNodes[0].classList.add("stars-not-filled");
 }
-/* commento */
 
+// handle form
 const form = document.getElementById("form-feedback");
 form.addEventListener("submit", function (e) {
    e.preventDefault();
