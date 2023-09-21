@@ -222,6 +222,8 @@ document.getElementById("base-timer").innerHTML = `
 let domandaCorrente = 0;
 let punteggio = 0;
 let arrQuestions = [];
+let userAnswers = [];
+let numDomande = 5;
 let difficulty = "easy";
 
 const displayQuestion = function () {
@@ -230,7 +232,7 @@ const displayQuestion = function () {
    const cont = document.getElementById("qCont-Container");
 
    fetch(
-      `https://opentdb.com/api.php?amount=10&category=18&difficulty=${difficulty}`
+      `https://opentdb.com/api.php?amount=${numDomande}&category=18&difficulty=${difficulty}`
    )
       .then((response) => response.json())
       .then((questions) => {
@@ -273,42 +275,10 @@ const displayQuestion = function () {
          // better if we can randomize the order of listAnswers
          const listAnswers = [...listCorrect, ...listIncorrect];
 
-         // <form>
-         //    <fieldset id="group1">
-         //       <input type="radio" value="value1" name="group1">
-         //    </fieldset>
-
-         //    <fieldset id="group2">
-         //       <input type="radio" value="value1" name="group2">
-         //    </fieldset>
-
-         //    <fieldset id="group3">
-         //       <input type="radio" value="value1" name="group3">
-         //    </fieldset>
-
-         //    <fieldset id="group4">
-         //       <input type="radio" value="value1" name="group4">
-         //    </fieldset>
-         // </form>
-
-         //    window.onload = function() {
-         //       var form = document.getElementById('myForm');
-         //       var inputs = form.getElementsByTagName('input');
-         //       var maxChecked = 3;
-
-         //       for (var i = 0; i < inputs.length; i++) {
-         //           inputs[i].onclick = function() {
-         //               var checkedCount = 0;
-         //               for (var j = 0; j < inputs.length; j++) {
-         //                   checkedCount += inputs[j].checked ? 1 : 0;
-         //               }
-         //               if (checkedCount > maxChecked) {
-         //                   alert('You can only select ' + maxChecked + ' options.');
-         //                   return false;
-         //               }
-         //           }
-         //       }
-         //   }
+         console.log(
+            "correct answer: ",
+            arrQuestions[domandaCorrente].correct_answer
+         );
 
          // check clicked amount so we can target specific multiple selections
          let checkedCount = 0;
@@ -322,8 +292,9 @@ const displayQuestion = function () {
 
             scelta.type = "radio";
             scelta.name = "answer";
-            scelta.value = i;
-            // scelta.setAttribute("onclick", "check()");
+            // scelta.value = i;
+            scelta.value = listAnswers[i];
+            scelta.setAttribute("onclick", "check()");
             scelta.setAttribute("id", i);
             etichetta.setAttribute("for", i);
             etichetta.classList.add("forCss");
@@ -333,33 +304,8 @@ const displayQuestion = function () {
                checkedCount += this.checked ? 1 : 0;
             });
 
-            // this is temporary solution
-            // available if fieldsets are available
-            // if (checkedCount > maxChecked) {
-            //    alert(`You can select ${maxChecked} options!`);
-            // }
-
-            // ************** I can disable radio input button using css, "disabled" in html
-
-            // remove these 3 lines. only for testing
-            // const main = document.querySelector("main");
-            // const type = document.createElement("p");
-            // type.innerText = arrQuestions[domandaCorrente].type;
-            // main.appendChild(type);
-
-            console.log(arrQuestions.type);
-
-            if (arrQuestions[domandaCorrente].type === "multiple") {
-               const fieldset = document.createElement("fieldset");
-               fieldset.setAttribute("id", `group-${i}`);
-               sceltaDiv.appendChild(fieldset);
-               fieldset.appendChild(scelta);
-               fieldset.appendChild(etichetta);
-               console.log("fieldset: ", fieldset);
-            } else {
-               sceltaDiv.appendChild(scelta);
-               sceltaDiv.appendChild(etichetta);
-            }
+            sceltaDiv.appendChild(scelta);
+            sceltaDiv.appendChild(etichetta);
 
             ans.appendChild(sceltaDiv);
             if (i !== 0) {
@@ -367,7 +313,7 @@ const displayQuestion = function () {
             }
             cont.innerHTML = `<p>QUESTION  ${
                domandaCorrente + 1
-            }</p><p id="cont">/ ${questions.length}</p>`;
+            }</p><p id="cont">/ ${arrQuestions.length}</p>`;
          }
       });
 };
@@ -393,25 +339,37 @@ const prossimaDomanda = function () {
       console.log(countAsString);
 
       location.assign(`results.html?score=${countAsString}`);
-      //calcolaPunteggio();
+      // calcolaPunteggio();
    }
 };
 
-// const check = function () {
-//    const rispostaSelezionata = parseInt(
-//       document.querySelector('input[name="answer"]:checked').value
-//    );
+const check = function () {
+   const rispostaSelezionata = document.querySelector(
+      'input[name="answer"]:checked'
+   ).value;
 
-//    // console.log(rispostaSelezionata);
+   console.log("risposta utente: ", rispostaSelezionata);
+   console.log("true answer: ", arrQuestions[domandaCorrente].correct_answer);
 
-//    // if (questions[domandaCorrente].answer[rispostaSelezionata].corretto) {
-//    //    punteggio = punteggio += 1;
-//    //    console.log("corretto");
-//    //    console.log(punteggio);
-//    //    prossimaDomanda();
-//    // } else {
-//    //    prossimaDomanda();
-//    // }
-// };
+   if (arrQuestions[domandaCorrente].correct_answer === rispostaSelezionata) {
+      // this.classList;
+      console.log("this: ", this.classList);
+      punteggio = punteggio += 1;
+      console.log("corretto");
+      console.log(punteggio);
+      prossimaDomanda();
+   } else {
+      prossimaDomanda();
+   }
+
+   // if (arrQuestions[domandaCorrente].answer[rispostaSelezionata].corretto) {
+   //    punteggio = punteggio += 1;
+   //    console.log("corretto");
+   //    console.log(punteggio);
+   //    prossimaDomanda();
+   // } else {
+   //    prossimaDomanda();
+   // }
+};
 //displayQuestion();
 start();
