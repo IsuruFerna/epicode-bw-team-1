@@ -272,8 +272,9 @@ const displayQuestion = function () {
          }
 
          // joining both correct and incorrect answers
-         // better if we can randomize the order of listAnswers
-         const listAnswers = [...listCorrect, ...listIncorrect];
+         let listAnswers = [...listCorrect, ...listIncorrect];
+         // randomize the order of listAnswers
+         listAnswers.sort(() => Math.random() - 0.5);
 
          console.log(
             "correct answer: ",
@@ -294,7 +295,7 @@ const displayQuestion = function () {
             scelta.name = "answer";
             // scelta.value = i;
             scelta.value = listAnswers[i];
-            scelta.setAttribute("onclick", "check()");
+            scelta.setAttribute("onclick", "check(event)");
             scelta.setAttribute("id", i);
             etichetta.setAttribute("for", i);
             etichetta.classList.add("forCss");
@@ -338,38 +339,29 @@ const prossimaDomanda = function () {
       let countAsString = punteggio.toString();
       console.log(countAsString);
 
-      location.assign(`results.html?score=${countAsString}`);
+      location.assign(
+         `results.html?amount=${numDomande}&score=${countAsString}`
+      );
       // calcolaPunteggio();
    }
 };
 
-const check = function () {
+const check = function (event) {
    const rispostaSelezionata = document.querySelector(
       'input[name="answer"]:checked'
    ).value;
 
-   console.log("risposta utente: ", rispostaSelezionata);
-   console.log("true answer: ", arrQuestions[domandaCorrente].correct_answer);
+   const label = document.querySelector('label[for="' + event.target.id + '"]');
 
    if (arrQuestions[domandaCorrente].correct_answer === rispostaSelezionata) {
-      // this.classList;
-      console.log("this: ", this.classList);
+      // feedback
+      label.style.background = "green";
       punteggio = punteggio += 1;
-      console.log("corretto");
-      console.log(punteggio);
       prossimaDomanda();
    } else {
+      label.style.background = "red";
       prossimaDomanda();
    }
-
-   // if (arrQuestions[domandaCorrente].answer[rispostaSelezionata].corretto) {
-   //    punteggio = punteggio += 1;
-   //    console.log("corretto");
-   //    console.log(punteggio);
-   //    prossimaDomanda();
-   // } else {
-   //    prossimaDomanda();
-   // }
 };
 //displayQuestion();
 start();
