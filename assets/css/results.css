@@ -1,6 +1,10 @@
 main {
+   width: 1700px;
+   min-width: 1000px;
    text-align: center;
    margin: 50px 0;
+   margin-right: auto;
+   margin-left: auto;
 }
 
 div:first-child > h2 {
@@ -125,4 +129,17 @@ button {
 
 #wrongQuestionsNumber {
    text-align: right;
+}
+
+.align-right {
+   text-align: right;
+}
+
+.align-left {
+   text-align: left;
+}
+
+.margin-0 {
+   margin: 0;
+   width: 100%;
 }
