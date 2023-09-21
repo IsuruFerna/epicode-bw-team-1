@@ -6,122 +6,32 @@ let numDomande
 let chooseDfifficulty = document.getElementById('difficulty')
 
 chooseDfifficulty.addEventListener('change', function () {
-  const difficultyChoosed = chooseDfifficulty.value
+  const difficultyChoosed = chooseDfifficulty.value //da controllare
   console.log(difficultyChoosed)
 })
 let rangeInput = document.getElementById('numberOfQuestions')
 let numbOfQuestion = document.querySelector('output')
-let questions
+let questions1
 
 function updateQuestionsValue() {
-  questions = rangeInput.value
+  questions1 = rangeInput.value
 
-  numbOfQuestion.textContent = questions
+  numbOfQuestion.textContent = questions1
 
-  return questions
+  return questions1
 }
 
 rangeInput.addEventListener('input', updateQuestionsValue)
 
 let difficulty = chooseDfifficulty.value
 
-const displayQuestion = function () {
-  const question = document.getElementById('question-container')
-  const ans = document.getElementById('answer-container')
-  const cont = document.getElementById('qCont-Container')
-
-  fetch(
-    `https://opentdb.com/api.php?amount=${numDomande}&category=18&difficulty=${difficulty}`
-  )
-    .then((response) => response.json())
-    .then((questions) => {
-      // assigning all fetch data to a global array
-      arrQuestions = questions.results
-
-      // render question
-      question.textContent = arrQuestions[domandaCorrente].question
-      ans.innerHTML = ''
-
-      console.log(
-        'question: ',
-        arrQuestions[domandaCorrente].question,
-        'Answers: ',
-        arrQuestions[domandaCorrente].correct_answer,
-        arrQuestions[domandaCorrente].incorrect_answers
-      )
-
-      console.log('Type: ', arrQuestions[domandaCorrente].type)
-
-      // creating a list of correct answers and incorrect answers
-      let listCorrect = []
-      if (typeof arrQuestions[domandaCorrente].correct_answer === 'string') {
-        listCorrect = [arrQuestions[domandaCorrente].correct_answer]
-      } else {
-        listCorrect = [...arrQuestions[domandaCorrente].correct_answer]
-      }
-      let listIncorrect = []
-      if (typeof arrQuestions[domandaCorrente].incorrect_answers === 'string') {
-        listIncorrect = [arrQuestions[domandaCorrente].incorrect_answers]
-      } else {
-        listIncorrect = [...arrQuestions[domandaCorrente].incorrect_answers]
-      }
-
-      // joining both correct and incorrect answers
-      let listAnswers = [...listCorrect, ...listIncorrect]
-      // randomize the order of listAnswers
-      listAnswers.sort(() => Math.random() - 0.5)
-
-      console.log(
-        'correct answer: ',
-        arrQuestions[domandaCorrente].correct_answer
-      )
-
-      // check clicked amount so we can target specific multiple selections
-      let checkedCount = 0
-      let maxChecked = listCorrect.length
-
-      // rendering each answer
-      for (let i = 0; i < listAnswers.length; i++) {
-        const sceltaDiv = document.createElement('div')
-        const scelta = document.createElement('input')
-        const etichetta = document.createElement('label')
-
-        scelta.type = 'radio'
-        scelta.name = 'answer'
-        // scelta.value = i;
-        scelta.value = listAnswers[i]
-        scelta.setAttribute('onclick', 'check(event)')
-        scelta.setAttribute('id', i)
-        etichetta.setAttribute('for', i)
-        etichetta.classList.add('forCss')
-        etichetta.textContent = listAnswers[i]
-
-        scelta.addEventListener('click', function () {
-          checkedCount += this.checked ? 1 : 0
-        })
-
-        sceltaDiv.appendChild(scelta)
-        sceltaDiv.appendChild(etichetta)
-
-        ans.appendChild(sceltaDiv)
-        if (i !== 0) {
-          resetTimer()
-        }
-        cont.innerHTML = `<p>QUESTION  ${
-          domandaCorrente + 1
-        }</p><p id="cont">/ ${arrQuestions.length}</p>`
-      }
-    })
-}
-
 let startQuiz = document.getElementById('startButton')
 
 startQuiz.addEventListener('click', function () {
   numDomande = updateQuestionsValue()
 
-  let header = document.querySelector('header')
-  header.style.textAlign = 'initial'
-  // Nascondi l'elemento con classe 'form'
+  //cambio pagina
+
   let formElement = document.querySelector('.form')
   if (formElement) {
     formElement.style.display = 'none'
@@ -132,7 +42,11 @@ startQuiz.addEventListener('click', function () {
     startElement.style.display = 'none'
   }
 
-  // const mainFunction = function () {
+  const header = document.querySelector('header')
+  header.style.textAlign = 'initial'
+
+  //pagina cambiata
+
   let FULL_DASH_ARRAY = 220
   let timeLimit = 20
   let tempoPassato = 0
@@ -175,7 +89,7 @@ startQuiz.addEventListener('click', function () {
       tempoMancante = timeLimit - tempoPassato
 
       document.getElementById('timer-label').innerHTML = `
-        <p>Seconds</p>${tempoRimanente(tempoMancante)}<p>Remainig</p>`
+      <p>Seconds</p>${tempoRimanente(tempoMancante)}<p>Remainig</p>`
       // aggiorno la funzione dentro lo span che visulazzia i secondi rimanenti
       setCircleDasharray()
       if (tempoMancante === 0) {
@@ -184,58 +98,152 @@ startQuiz.addEventListener('click', function () {
       }
     }, 1000)
   }
-  // startTimer()
 
   document.getElementById('base-timer').innerHTML = `
-  <svg class="cTimer-svg"
-            viewbox="0 00 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g class="base-timer-cerchio">
-              <circle class="base-timer-path" cx="50" cy="50" r="35" />
-              <path
-              id="timer-path"
-              stroke-dasharray="220"
-              stroke="#00ffff"
-              class="cTimer-path " 
-              d="
-              M 50,50
-              m -35,0
-              a 35,35 0 1,0 70,0
-              a 35,35 0 1,0 -70,0
-              "
-              ></path>
-            </g>
-          </svg>
-          <span id="timer-label" class="cTimer-label"><p>Seconds</p>${tempoRimanente(
-            tempoMancante
-          )}<p>Remainig</p> </span>`
-  startTimer()
+<svg class="cTimer-svg"
+          viewbox="0 00 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g class="base-timer-cerchio">
+            <circle class="base-timer-path" cx="50" cy="50" r="35" />
+            <path
+            id="timer-path"
+            stroke-dasharray="220"
+            stroke="#00ffff"
+            class="cTimer-path " 
+            d="
+            M 50,50
+            m -35,0
+            a 35,35 0 1,0 70,0
+            a 35,35 0 1,0 -70,0
+            "
+            ></path>
+          </g>
+        </svg>
+        <span id="timer-label" class="cTimer-label"><p>Seconds</p>${tempoRimanente(
+          tempoMancante
+        )}<p>Remainig</p> </span>`
 
-  displayQuestion()
+  const displayQuestion = function () {
+    const question = document.getElementById('question-container')
+    const ans = document.getElementById('answer-container')
+    const cont = document.getElementById('qCont-Container')
+
+    fetch(
+      `https://opentdb.com/api.php?amount=${numDomande}&category=18&difficulty=${difficulty}`
+    )
+      .then((response) => response.json())
+      .then((questions) => {
+        // assigning all fetch data to a global array
+        arrQuestions = questions.results
+
+        // render question
+        question.textContent = arrQuestions[domandaCorrente].question
+        ans.innerHTML = ''
+
+        console.log(
+          'question: ',
+          arrQuestions[domandaCorrente].question,
+          'Answers: ',
+          arrQuestions[domandaCorrente].correct_answer,
+          arrQuestions[domandaCorrente].incorrect_answers
+        )
+
+        console.log('Type: ', arrQuestions[domandaCorrente].type)
+
+        // creating a list of correct answers and incorrect answers
+        let listCorrect = []
+        if (typeof arrQuestions[domandaCorrente].correct_answer === 'string') {
+          listCorrect = [arrQuestions[domandaCorrente].correct_answer]
+        } else {
+          listCorrect = [...arrQuestions[domandaCorrente].correct_answer]
+        }
+        let listIncorrect = []
+        if (
+          typeof arrQuestions[domandaCorrente].incorrect_answers === 'string'
+        ) {
+          listIncorrect = [arrQuestions[domandaCorrente].incorrect_answers]
+        } else {
+          listIncorrect = [...arrQuestions[domandaCorrente].incorrect_answers]
+        }
+
+        // joining both correct and incorrect answers
+        let listAnswers = [...listCorrect, ...listIncorrect]
+        // randomize the order of listAnswers
+        listAnswers.sort(() => Math.random() - 0.5)
+
+        console.log(
+          'correct answer: ',
+          arrQuestions[domandaCorrente].correct_answer
+        )
+
+        // check clicked amount so we can target specific multiple selections
+        let checkedCount = 0
+        let maxChecked = listCorrect.length
+
+        // rendering each answer
+        for (let i = 0; i < listAnswers.length; i++) {
+          const sceltaDiv = document.createElement('div')
+          const scelta = document.createElement('input')
+          const etichetta = document.createElement('label')
+
+          scelta.type = 'radio'
+          scelta.name = 'answer'
+          // scelta.value = i;
+          scelta.value = listAnswers[i]
+          scelta.setAttribute('onclick', 'check(event)')
+          scelta.setAttribute('id', i)
+          etichetta.setAttribute('for', i)
+          etichetta.classList.add('forCss')
+          etichetta.textContent = listAnswers[i]
+
+          scelta.addEventListener('click', function () {
+            checkedCount += this.checked ? 1 : 0
+            prossimaDomanda()
+          })
+
+          sceltaDiv.appendChild(scelta)
+          sceltaDiv.appendChild(etichetta)
+
+          ans.appendChild(sceltaDiv)
+          if (i !== 0) {
+            resetTimer()
+          }
+          cont.innerHTML = `<p>QUESTION  ${
+            domandaCorrente + 1
+          }</p><p id="cont">/ ${arrQuestions.length}</p>`
+        }
+      })
+  }
+
+  // displayQuestion();
+  const start = function () {
+    startTimer()
+    displayQuestion()
+  }
+
+  const prossimaDomanda = function () {
+    if (domandaCorrente < arrQuestions.length - 1) {
+      domandaCorrente++
+      displayQuestion()
+    } else {
+      document.getElementById('answer-container').remove()
+      document.getElementById('question-container').remove()
+
+      let countAsString = punteggio.toString()
+      console.log(countAsString)
+
+      location.assign(
+        `results.html?amount=${numDomande}&score=${countAsString}`
+      )
+      // calcolaPunteggio();
+    }
+  }
+  start()
 })
-const start = function () {
-  startTimer()
-  displayQuestion()
-}
 const calcolaPunteggio = function () {
   const totalScore = document.getElementById('score')
   totalScore.textContent = `il tuo punteggio è ${punteggio}`
-}
-const prossimaDomanda = function () {
-  if (domandaCorrente < arrQuestions.length - 1) {
-    domandaCorrente++
-    displayQuestion()
-  } else {
-    document.getElementById('answer-container').remove()
-    document.getElementById('question-container').remove()
-
-    let countAsString = punteggio.toString()
-    console.log(countAsString)
-
-    location.assign(`results.html?amount=${numDomande}&score=${countAsString}`)
-    calcolaPunteggio()
-  }
 }
 const check = function (event) {
   const rispostaSelezionata = document.querySelector(
@@ -248,12 +256,10 @@ const check = function (event) {
     // feedback
     label.style.background = 'green'
     punteggio = punteggio += 1
-
-    // console.log("corretto");
-    // console.log(punteggio);
     prossimaDomanda()
   } else {
     label.style.background = 'red'
     prossimaDomanda()
   }
 }
+//displayQuestion();
