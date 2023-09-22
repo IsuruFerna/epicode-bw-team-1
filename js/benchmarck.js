@@ -1,3 +1,81 @@
+//Creazione delle scelte
+
+const divClassForm = document.createElement('div')
+divClassForm.className = 'form'
+
+const formSelection = document.createElement('form')
+formSelection.id = 'selection'
+
+const labelDifficulty = document.createElement('label')
+labelDifficulty.htmlFor = 'label'
+labelDifficulty.innerText = 'Difficulty'
+
+const selection = document.createElement('select')
+selection.name = 'difficulty'
+selection.id = 'difficulty'
+
+const easy = document.createElement('option')
+easy.value = 'easy'
+easy.innerText = 'Easy'
+
+const medium = document.createElement('option')
+medium.value = 'medium'
+medium.innerText = 'Medium'
+
+const hard = document.createElement('option')
+hard.value = 'hard'
+hard.innerText = 'Hard'
+
+selection.appendChild(easy)
+selection.appendChild(medium)
+selection.appendChild(hard)
+
+const labelQuestions = document.createElement('label')
+labelQuestions.htmlFor = 'questions'
+labelQuestions.innerText = 'number of questions'
+
+const input = document.createElement('input')
+input.type = 'range'
+input.id = 'numberOfQuestions'
+input.name = 'numberOfQuestions'
+input.min = '1'
+input.max = '35'
+input.step = '1'
+input.value = '1'
+
+const output = document.createElement('output')
+output.innerText = '1'
+
+input.addEventListener('input', function () {
+  output.textContent = this.value
+})
+
+formSelection.appendChild(labelDifficulty)
+formSelection.appendChild(selection)
+formSelection.appendChild(labelQuestions)
+formSelection.appendChild(input)
+formSelection.appendChild(output)
+
+divClassForm.appendChild(formSelection)
+
+//Creazione del bottone Start
+
+const divForStartButton = document.createElement('div')
+divForStartButton.classList.add('form', 'start')
+
+const startLabel = document.createElement('label')
+startLabel.htmlFor = 'start'
+startLabel.className = 'start'
+startLabel.id = 'startButton'
+startLabel.innerText = 'Start'
+
+divForStartButton.appendChild(startLabel)
+
+document.body.appendChild(divClassForm)
+document.body.appendChild(divForStartButton)
+
+//Inizio pagina domande
+
 let domandaCorrente = 0
 let punteggio = 0
 let arrQuestions = []
@@ -208,6 +286,7 @@ startQuiz.addEventListener('click', function () {
           ans.appendChild(sceltaDiv)
           if (i !== 0) {
             resetTimer()
+            // startTimer()
           }
           cont.innerHTML = `<p>QUESTION  ${
             domandaCorrente + 1
