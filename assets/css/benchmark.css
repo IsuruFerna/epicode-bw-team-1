@@ -1,10 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@400&display=swap");
-.container{
+.container {
   width: 1700px;
   margin-left: auto;
   margin-right: auto;
-  
-  
 }
 p {
   font-family: "Inter", sans-serif;
@@ -24,7 +22,6 @@ body {
 }
 header {
   margin-bottom: 100px;
-  
 }
 
 .logo-container {
@@ -113,11 +110,11 @@ header {
   display: flex;
   align-content: center;
   justify-content: center;
-  width: 400px; 
+  width: 400px;
   height: 30px;
   font-size: 1.4em;
   margin: 20px;
-  padding: 25px 0; 
+  padding: 25px 0;
   cursor: pointer;
   margin-right: 30px;
   color: white;
@@ -128,20 +125,19 @@ header {
   border-radius: 50px;
   text-align: center;
   transition: background-color 0.2s;
- 
+
   padding-left: 10px;
   padding-right: 10px;
- 
-  white-space: wrap;
-  overflow:auto;
-  text-align: center;
 
+  white-space: wrap;
+  overflow: auto;
+  text-align: center;
 }
 
 #answer-container label:hover {
   color: white;
-  background: linear-gradient(#D20094, #900080) padding-box,
-    linear-gradient(to top, #D20094, white) border-box;
+  background: linear-gradient(#d20094, #900080) padding-box,
+    linear-gradient(to top, #d20094, white) border-box;
 }
 
 #answer-container div {
@@ -157,7 +153,6 @@ header {
   text-align: center;
 }
 #container {
-
   width: 1000px;
   padding: 0% 10%;
   margin: 0 auto;
@@ -172,102 +167,100 @@ p#cont {
   letter-spacing: 0.5px;
 }
 
-
-.form{
+.form {
   text-align: center;
   font-size: 2.4em;
   padding: 25px 60px 25px 60px;
   margin-right: 30px;
   color: white;
   display: inline-block;
-  background: url(../bg.jpg) no-repeat fixed center padding-box, linear-gradient(to top, rgba(255, 255, 255, 0.3), white) border-box;
-    background-size: auto, auto;
+  background: url(../bg.jpg) no-repeat fixed center padding-box,
+    linear-gradient(to top, rgba(255, 255, 255, 0.3), white) border-box;
+  background-size: auto, auto;
   background-size: auto, auto;
   background-size: cover;
   border: 4px solid transparent;
   border-radius: 60px;
-  &:hover{
-    transform: scale(1.05); 
+  &:hover {
+    transform: scale(1.05);
     transition: transform 0.2s ease;
     color: white;
-    background: linear-gradient(to top,#aa73c3, #490775) padding-box,
-    linear-gradient(to top, #8c4caa, white) border-box;
+    background: linear-gradient(to top, #aa73c3, #490775) padding-box,
+      linear-gradient(to top, #8c4caa, white) border-box;
   }
-  
+}
+#numberOfQuestions {
+  cursor: pointer;
+  background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
+  border-radius: 10px;
+  box-shadow: 0 0 1px 2px black inset;
+  margin: 2px 10px;
 }
 
-#numberOfQuestions  {
-    cursor: pointer;
-    background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
-    border-radius: 10px;
-    box-shadow: 0 0 1px 2px black inset;
-    margin: 2px 10px
-}
-
-  /* Imposta il colore di sfondo quando il cursore è in modalità hover */
+/* Imposta il colore di sfondo quando il cursore è in modalità hover */
 #numberOfQuestions:hover {
-    background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
-    border-radius: 10px
+  background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
+  border-radius: 10px;
 }
 
-  /* Imposta il colore del tracciato del range */
+/* Imposta il colore del tracciato del range */
 #numberOfQuestions::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
-    border-radius: 10px
+  background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
+  border-radius: 10px;
 }
 
 #numberOfQuestions::-moz-range-track {
-    background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
-    border-radius: 10px;
+  background: linear-gradient(to right, rgb(12, 17, 59), rgb(106, 39, 118));
+  border-radius: 10px;
 }
 
 /* Imposta il colore del cursore */
 
 #numberOfQuestions::-webkit-slider-thumb {
-    background: #6A2776;
-    border: 2px solid white;
-    border-radius: 10px
+  background: #6a2776;
+  border: 2px solid white;
+  border-radius: 10px;
 }
 
 #numberOfQuestions::-moz-range-thumb {
-    background-color: #6A2776;
-    border: 2px solid white;
-    border-radius: 10px
+  background-color: #6a2776;
+  border: 2px solid white;
+  border-radius: 10px;
 }
-
 
 select {
-    width: 180px;
-    text-align: center;
-    margin: 0 10px;
-    font-size: 1em;
-    color: white;
-    display: inline-block;
-    background: url(../bg.jpg) no-repeat fixed center padding-box, linear-gradient(to top, rgba(255, 255, 255, 0.3), white) border-box;
-      background-size: auto, auto;
-    background-size: cover;
-    border: 4px solid transparent;
-    border-radius: 10px;
+  width: 180px;
+  text-align: center;
+  margin: 0 10px;
+  font-size: 1em;
+  color: white;
+  display: inline-block;
+  background: url(../bg.jpg) no-repeat fixed center padding-box,
+    linear-gradient(to top, rgba(255, 255, 255, 0.3), white) border-box;
+  background-size: auto, auto;
+  background-size: cover;
+  border: 4px solid transparent;
+  border-radius: 10px;
 }
 
- select option {
-  background-color: #D20094; 
-  color:white; 
-  padding: 8px; 
-  border: none; 
-  border-radius: 5px; 
+select option {
+  background-color: #0c113b;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
 }
 
-.start{
+.start {
   cursor: pointer;
 }
 
-.form.start{
+.form.start {
   display: inline-block;
-  width: 150px; 
+  width: 150px;
   height: 50px;
   font-size: 3em;
-  padding: 25px 0; 
+  padding: 25px 0;
   cursor: pointer;
   position: absolute;
   color: white;
@@ -280,23 +273,14 @@ select {
   transition: background-color 0.2s;
 
   white-space: wrap;
-  overflow:auto;
+  overflow: auto;
   text-align: center;
 
-  &:hover{
-    transform: scale(1.1); 
+  &:hover {
+    transform: scale(1.1);
     transition: transform 0.2s ease;
     color: white;
-    background: linear-gradient(to top,#aa73c3, #490775) padding-box,
+    background: linear-gradient(to top, #aa73c3, #490775) padding-box,
       linear-gradient(to top, #8c4caa, white) border-box;
-}
-
-}
-select option{
-  background-color: #0C113B;
-  color: white;
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-
+  }
 }
