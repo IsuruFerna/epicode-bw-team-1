@@ -186,6 +186,13 @@ p#cont {
   background-size: cover;
   border: 4px solid transparent;
   border-radius: 60px;
+  &:hover{
+    transform: scale(1.05); 
+    transition: transform 0.2s ease;
+    color: white;
+    background: linear-gradient(to top,#aa73c3, #490775) padding-box,
+    linear-gradient(to top, #8c4caa, white) border-box;
+  }
   
 }
 
@@ -244,8 +251,8 @@ select {
 }
 
  select option {
-  background-color: #0C113B; 
-  color: white; 
+  background-color: #D20094; 
+  color:white; 
   padding: 8px; 
   border: none; 
   border-radius: 5px; 
@@ -253,4 +260,35 @@ select {
 
 .start{
   cursor: pointer;
+}
+
+.form.start{
+  display: inline-block;
+  width: 150px; 
+  height: 50px;
+  font-size: 3em;
+  padding: 25px 0; 
+  cursor: pointer;
+  position: absolute;
+  color: white;
+  background: url(../bg.jpg) no-repeat fixed center padding-box,
+    linear-gradient(to top, rgb(255, 255, 255, 0.1), white) border-box;
+  background-size: cover;
+  border: 4px solid transparent;
+  border-radius: 50px;
+  text-align: center;
+  transition: background-color 0.2s;
+
+  white-space: wrap;
+  overflow:auto;
+  text-align: center;
+
+  &:hover{
+    transform: scale(1.1); 
+    transition: transform 0.2s ease;
+    color: white;
+    background: linear-gradient(to top,#aa73c3, #490775) padding-box,
+      linear-gradient(to top, #8c4caa, white) border-box;
+}
+
 }
