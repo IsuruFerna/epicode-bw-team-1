@@ -1,105 +1,144 @@
-main{
-    text-align: center;
-    margin: 50px 0;
+body {
+   width: 100%;
 }
 
-div:first-child > h2{
-    font-size: 2em;
-    font-weight: normal;
-    margin-top: 10px;
+main {
+   /* width: 1700px; */
+   min-width: 1000px;
+   text-align: center;
+   margin: 50px 0;
+   margin-right: auto;
+   margin-left: auto;
 }
 
-#mainContent{
-    margin-top: 100px;
-    width: 100%;
-    height: 500px;
+div:first-child > h2 {
+   font-size: 2em;
+   font-weight: normal;
+   margin-top: 10px;
 }
 
-#mainContent h2{
-    font-size: 3em;
-    font-weight: normal;
+#mainContent {
+   width: 100%;
+   height: 500px;
 }
 
-h3{
-    font-size: 1.2em;
+#mainContent h2 {
+   font-size: 3em;
+   font-weight: normal;
 }
 
-#mainContent div:nth-of-type(2){
-    display: inline-block;
+h3 {
+   font-size: 1.2em;
 }
 
-.passedNotPassed{
-    border-radius: 100%;
-    border: 50px solid;
-    border-color: #00ffff #d20094 #00ffff #00ffff ;
-    width: 300px;;
-    height:300px;
-    box-shadow: 0 0 70px 9px black, 0 0 70px 9px black inset;
+#mainContent div:nth-of-type(2) {
+   display: inline-block;
+   vertical-align: bottom;
 }
 
-.passedNotPassed > div{
-    margin-top: 80px;
-    padding-right: 35px;
-    padding-left: 35px;
-    margin-left: 10px;
-    margin-right: 10px
+a {
+   text-decoration: none;
+   color: #ffffff;
+   font-weight: bold;
 }
 
-.passedNotPassed > div:first-of-type > h3:first-of-type{
-    margin-top: -25px;
+.circle-svg {
+   position: relative;
 }
 
-.correct{
-    display: inline-block;
-    /* background:Red; */
-    width:33.33%;
-    height:280px;
+.inner-circle-text {
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
 }
 
-.wrong{
-    display: inline-block;
-    /* background:blue; */
-    width:33.33%;
-    height:280px;
+.inner-circle-text p {
+   padding: 0.2em;
+   font-size: 14px;
+   line-height: 20px;
 }
 
-.cyanH3{
-    color: #00ffff;
+.inner-circle-text h3 {
+   font-weight: bold;
 }
 
-.cyanH3 + p:first-of-type{
-    padding-top: 22px;
+.passedNotPassed > div {
+   margin-top: 80px;
+   padding-right: 35px;
+   padding-left: 35px;
+   margin-left: 10px;
+   margin-right: 10px;
 }
 
-button{
-    background: none;
-    width: 210px;
-    height: 60px;
-    font-size: 1.2em;
-    border: 1px solid #ffffff;
-    color:#ffffff;
-    box-shadow: 0 0 70px 50px #3E2872, 0 0 70px 5px #00ffff;
+.passedNotPassed > div:first-of-type > h3:first-of-type {
+   margin-top: -25px;
 }
 
-button:hover{
-    transform: scale(1.05);
-    transition: 0.5s;
+.correct {
+   display: inline-block;
+   width: 33.33%;
+   height: 280px;
 }
 
-.percentage{
-    width: 25%;
-    margin: 0 auto;
-    font-weight: bold;
+.wrong {
+   display: inline-block;
+   width: 33.33%;
+   height: 280px;
 }
 
-.percentage > p:first-of-type{
-    font-size: 3em;
+.cyanH3 {
+   color: #00ffff;
 }
 
-.correctPercentage{
-    text-align: left;
+.pinkH3 {
+   color: #d20094;
+   padding-top: 5px;
 }
 
-.wrongPercentage{
-    text-align: right;
+.cyanH3 + p:first-of-type {
+   padding-top: 22px;
+}
+
+button {
+   background: none;
+   width: 210px;
+   height: 60px;
+   font-size: 1.2em;
+   border: 1px solid #ffffff;
+   color: #ffffff;
+   box-shadow: 0 0 70px 50px #3e2872, 0 0 70px 5px #00ffff;
+}
+
+.percentage {
+   width: 25%;
+   margin: 0 auto;
+   font-weight: bold;
+}
+
+.percentage > p:first-of-type {
+   font-size: 3em;
+}
+
+#correctQuestionsNumber {
+   text-align: left;
+}
+
+#wrongQuestionsNumber {
+   text-align: right;
+}
+
+.align-right {
+   text-align: right;
+}
+
+.align-left {
+   text-align: left;
+}
+
+.margin-0 {
+   margin: 0;
+   width: 100%;
 }

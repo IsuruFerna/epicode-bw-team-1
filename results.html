@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/results.css" />
-    <title>Document</title>
+    <title>Results</title>
   </head>
   <body>
     <header>
@@ -18,38 +18,66 @@
         <h2>The summary of your answers:</h2>
       </div>
       <div id="mainContent">
-        <div class="correct">
+        <div class="correct align-left">
           <h2>Correct</h2>
-          <div class="percentage correctPercentage">
-            <p>66.7%</p>
-            <p>4/6 questions</p>
+          <div class="percentage correctPercentage margin-0">
+            <p id="correctPercentage"></p>
+            <p id="correctQuestionsNumber"></p>
           </div>
         </div>
         <div class="circleDiv">
           <div class="passedNotPassed">
-            <div>
-              <h3>Congratulations!</h3>
-              <h3 class="cyanH3">You passed the exam</h3>
-              <p>
-                We'll send you the certificate in few minutes. Check your email
-                (including promotions/spam folder)
-              </p>
+            <div class="circle-svg">
+              <svg width="350" height="350">
+                <circle
+                  id="firstCircle"
+                  cx="175"
+                  cy="175"
+                  r="150"
+                  stroke="#d20094"
+                  stroke-width="50"
+                  fill="none"
+                />
+                <circle
+                  id="secondCircle"
+                  cx="175"
+                  cy="175"
+                  r="150"
+                  stroke="transparent"
+                  stroke-width="50"
+                  fill="none"
+                />
+                <path
+                  id="coloredpath"
+                  d=""
+                  fill="none"
+                  stroke="#00ffff"
+                  stroke-width="50"
+                />
+              </svg>
+              <div class="inner-circle-text">
+                <h3 id="message"></h3>
+                <h3 class="cyanH3"></h3>
+                <p id="certificate"></p>
+                <p id="checkEmail"></p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="wrong">
+        <div class="wrong align-right">
           <h2>Wrong</h2>
-          <div class="percentage wrongPercentage">
-            <p>33.3%</p>
-            <p>2/6 questions</p>
+          <div class="percentage wrongPercentage margin-0 align-right">
+            <p id="wrongPercentage"></p>
+            <p id="wrongQuestionsNumber"></p>
           </div>
         </div>
       </div>
       <div>
-        <form>
-          <button><h3>Rate us</h3></button>
-        </form>
+        <button>
+          <h3><a href="feedback.html">Rate us</a></h3>
+        </button>
       </div>
     </main>
+    <script src="js/results.js"></script>
   </body>
 </html>

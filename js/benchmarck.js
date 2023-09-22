@@ -1,56 +1,186 @@
-let FULL_DASH_ARRAY = 220;
-let timeLimit = 20;
-let tempoPassato = 0;
-let tempoMancante = timeLimit;
-let intervallo = null;
+//Creazione delle scelte
 
-const tempoRimanente = function (time) {
-  let seconds = time;
-  if (seconds < 10) {
-    seconds = `0${seconds}`; //mette lo 0 davanti in numeri < di 10 - 09-08-07...
+const divClassForm = document.createElement("div");
+divClassForm.className = "form";
+
+const formSelection = document.createElement("form");
+formSelection.id = "selection";
+
+const labelDifficulty = document.createElement("label");
+labelDifficulty.htmlFor = "label";
+labelDifficulty.innerText = "Difficulty";
+
+const selection = document.createElement("select");
+selection.name = "difficulty";
+selection.id = "difficulty";
+
+const easy = document.createElement("option");
+easy.value = "easy";
+easy.innerText = "Easy";
+
+const medium = document.createElement("option");
+medium.value = "medium";
+medium.innerText = "Medium";
+
+const hard = document.createElement("option");
+hard.value = "hard";
+hard.innerText = "Hard";
+
+selection.appendChild(easy);
+selection.appendChild(medium);
+selection.appendChild(hard);
+
+const labelQuestions = document.createElement("label");
+labelQuestions.htmlFor = "questions";
+labelQuestions.innerText = "number of questions";
+
+const input = document.createElement("input");
+input.type = "range";
+input.id = "numberOfQuestions";
+input.name = "numberOfQuestions";
+input.min = "1";
+input.max = "35";
+input.step = "1";
+input.value = "1";
+
+const output = document.createElement("output");
+output.innerText = "1";
+
+input.addEventListener("input", function () {
+  output.textContent = this.value;
+});
+
+formSelection.appendChild(labelDifficulty);
+formSelection.appendChild(selection);
+formSelection.appendChild(labelQuestions);
+formSelection.appendChild(input);
+formSelection.appendChild(output);
+
+divClassForm.appendChild(formSelection);
+
+//Creazione del bottone Start
+
+const divForStartButton = document.createElement("div");
+divForStartButton.classList.add("form", "start");
+
+const startLabel = document.createElement("label");
+startLabel.htmlFor = "start";
+startLabel.className = "start";
+startLabel.id = "startButton";
+startLabel.innerText = "Start";
+
+divForStartButton.appendChild(startLabel);
+
+document.body.appendChild(divClassForm);
+document.body.appendChild(divForStartButton);
+
+//Inizio pagina domande
+
+let domandaCorrente = 0;
+let punteggio = 0;
+let arrQuestions = [];
+let userAnswers = [];
+let numDomande;
+let chooseDfifficulty = document.getElementById("difficulty");
+
+chooseDfifficulty.addEventListener("change", function () {
+  const difficultyChoosed = chooseDfifficulty.value; //da controllare
+  console.log(difficultyChoosed);
+});
+let rangeInput = document.getElementById("numberOfQuestions");
+let numbOfQuestion = document.querySelector("output");
+let questions1;
+
+function updateQuestionsValue() {
+  questions1 = rangeInput.value;
+
+  numbOfQuestion.textContent = questions1;
+
+  return questions1;
+}
+
+rangeInput.addEventListener("input", updateQuestionsValue);
+
+let difficulty = chooseDfifficulty.value;
+
+let startQuiz = document.getElementById("startButton");
+
+startQuiz.addEventListener("click", function () {
+  numDomande = updateQuestionsValue();
+
+  //cambio pagina
+
+  let formElement = document.querySelector(".form");
+  if (formElement) {
+    formElement.style.display = "none";
   }
-  return `${seconds}`;
-};
-const resetTimer = function () {
-  FULL_DASH_ARRAY = 220;
-  timeLimit = 21;
-  tempoPassato = 0;
-  tempoMancante = timeLimit;
-  intervallo = null;
-};
-const tempoFinito = function () {
-  clearInterval(intervallo);
-  console.log(intervallo);
-};
-function calculateTimeFraction() {
-  const x = tempoMancante / timeLimit;
-  return x - (1 / timeLimit) * (1 - x);
-}
-function setCircleDasharray() {
-  const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
-  ).toFixed(0)} 220`;
-  document
-    .getElementById("timer-path")
-    .setAttribute("stroke-dasharray", circleDasharray);
-}
-const startTimer = function () {
-  intervallo = setInterval(() => {
-    tempoPassato++;
-    tempoMancante = timeLimit - tempoPassato;
 
-    document.getElementById("timer-label").innerHTML = `
-      <p>Seconds</p>${tempoRimanente(tempoMancante)}<p>Remainig</p>`;
-    // aggiorno la funzione dentro lo span che visulazzia i secondi rimanenti
-    setCircleDasharray();
-    if (tempoMancante === 0) {
-      tempoFinito();
-      prossimaDomanda();
+  let startElement = document.querySelector(".start");
+  if (startElement) {
+    startElement.style.display = "none";
+  }
+
+  const header = document.querySelector("header");
+  header.style.textAlign = "initial";
+
+  //pagina cambiata
+  // ********************* Dashborad *******************************************
+  let FULL_DASH_ARRAY = 220;
+  let timeLimit = 20;
+  let tempoPassato = 0;
+  let tempoMancante = timeLimit;
+  let intervallo = null;
+
+  const tempoRimanente = function (time) {
+    let seconds = time;
+    if (seconds < 10) {
+      seconds = `0${seconds}`; //mette lo 0 davanti in numeri < di 10 - 09-08-07...
     }
-  }, 1000);
-};
+    return `${seconds}`;
+  };
+  const resetTimer = function () {
+    FULL_DASH_ARRAY = 220;
+    timeLimit = 21;
+    tempoPassato = 0;
+    tempoMancante = timeLimit;
+    intervallo = null;
+  };
+  const tempoFinito = function () {
+    clearInterval(intervallo);
+    console.log(intervallo);
+  };
+  function calculateTimeFraction() {
+    const x = tempoMancante / timeLimit;
+    return x - (1 / timeLimit) * (1 - x);
+  }
+  function setCircleDasharray() {
+    const circleDasharray = `${(
+      calculateTimeFraction() * FULL_DASH_ARRAY
+    ).toFixed(0)} 220`;
+    document
+      .getElementById("timer-path")
+      .setAttribute("stroke-dasharray", circleDasharray);
+  }
+  const startTimer = function () {
+    intervallo = setInterval(() => {
+      tempoPassato++;
+      tempoMancante = timeLimit - tempoPassato;
 
-document.getElementById("base-timer").innerHTML = `
+      document.getElementById("timer-label").innerHTML = `
+      <p>Seconds</p>${tempoRimanente(tempoMancante)}<p>Remainig</p>`;
+      // aggiorno la funzione dentro lo span che visulazzia i secondi rimanenti
+      setCircleDasharray();
+      if (tempoMancante === 0) {
+        tempoFinito();
+        prossimaDomanda();
+      }
+    }, 1000);
+  };
+
+  const renderTimer = function (timeRemain) {
+    //  timer(circle) code
+    const viewTimer = document.getElementById("base-timer");
+    viewTimer.innerHTML = `
 <svg class="cTimer-svg"
           viewbox="0 00 100 100"
           xmlns="http://www.w3.org/2000/svg"
@@ -72,224 +202,149 @@ document.getElementById("base-timer").innerHTML = `
           </g>
         </svg>
         <span id="timer-label" class="cTimer-label"><p>Seconds</p>${tempoRimanente(
-          tempoMancante
+          timeRemain
         )}<p>Remainig</p> </span>`;
-//startTimer();
-//
-//
-//Da qui funziona per le domande
-const questions = [
-  {
-    type: "multiple",
+  };
 
-    question: "What does CPU stand for?",
-    correct_answer: "Central Processing Unit",
-    incorrect_answers: [
-      "Central Process Unit",
-      "Computer Personal Unit",
-      "Central Processor Unit",
-    ],
-    answer: [
-      { testo: "Central Process Unit", corretto: false },
-      { testo: "Central Processing Unit", corretto: true },
-      { testo: "Computer Personal Unit", corretto: false },
-      { testo: "Central Processor Unit", corretto: false },
-    ],
-  },
-  {
-    type: "multiple",
+  const displayQuestion = function () {
+    const question = document.getElementById("question-container");
+    const ans = document.getElementById("answer-container");
+    const cont = document.getElementById("qCont-Container");
 
-    question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
-    correct_answer: "Final",
-    incorrect_answers: ["Static", "Private", "Public"],
-    answer: [
-      { testo: "Final", corretto: true },
-      { testo: "Static", corretto: false },
-      { testo: "Private", corretto: false },
-      { testo: "Public", corretto: false },
-    ],
-  },
-  {
-    type: "boolean",
+    fetch(
+      `https://opentdb.com/api.php?amount=${numDomande}&category=18&difficulty=${difficulty}`
+    )
+      .then((response) => response.json())
+      .then((questions) => {
+        // assigning all fetch data to a global array
+        arrQuestions = questions.results;
 
-    question: "The logo for Snapchat is a Bell.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-    answer: [
-      { testo: "True", corretto: false },
-      { testo: "False", corretto: true },
-    ],
-  },
-  {
-    type: "boolean",
+        // render question
+        question.textContent = arrQuestions[domandaCorrente].question;
+        ans.innerHTML = "";
 
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-    answer: [
-      { testo: "True", corretto: false },
-      { testo: "False", corretto: true },
-    ],
-  },
-  {
-    category: "Science: Computers",
-    type: "multiple",
+        console.log(
+          "question: ",
+          arrQuestions[domandaCorrente].question,
+          "Answers: ",
+          arrQuestions[domandaCorrente].correct_answer,
+          arrQuestions[domandaCorrente].incorrect_answers
+        );
 
-    question:
-      "What is the most preferred image format used for logos in the Wikimedia database?",
-    correct_answer: ".svg",
-    incorrect_answers: [".png", ".jpeg", ".gif"],
-    answer: [
-      { testo: ".svg", corretto: true },
-      { testo: ".png", corretto: false },
-      { testo: ".jpeg", corretto: false },
-      { testo: ".gif", corretto: false },
-    ],
-  },
-  {
-    type: "multiple",
+        console.log("Type: ", arrQuestions[domandaCorrente].type);
 
-    question: "In web design, what does CSS stand for?",
-    correct_answer: "Cascading Style Sheet",
-    incorrect_answers: [
-      "Counter Strike: Source",
-      "Corrective Style Sheet",
-      "Computer Style Sheet",
-    ],
-    answer: [
-      { testo: "Cascading Style Sheet", corretto: true },
-      { testo: "Counter Strike: Source", corretto: false },
-      { testo: "Corrective Style Sheet", corretto: false },
-      { testo: "Computer Style Sheet", corretto: false },
-    ],
-  },
-  {
-    type: "multiple",
+        // creating a list of correct answers and incorrect answers
+        let listCorrect = [];
+        if (typeof arrQuestions[domandaCorrente].correct_answer === "string") {
+          listCorrect = [arrQuestions[domandaCorrente].correct_answer];
+        } else {
+          listCorrect = [...arrQuestions[domandaCorrente].correct_answer];
+        }
+        let listIncorrect = [];
+        if (
+          typeof arrQuestions[domandaCorrente].incorrect_answers === "string"
+        ) {
+          listIncorrect = [arrQuestions[domandaCorrente].incorrect_answers];
+        } else {
+          listIncorrect = [...arrQuestions[domandaCorrente].incorrect_answers];
+        }
 
-    question:
-      "What is the code name for the mobile operating system Android 7.0?",
-    correct_answer: "Nougat",
-    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
-    answer: [
-      { testo: "Nougat", corretto: true },
-      { testo: "Ice Cream Sandwich", corretto: false },
-      { testo: "Jelly Bean", corretto: false },
-      { testo: "Marshmallow", corretto: false },
-    ],
-  },
-  {
-    type: "multiple",
+        // joining both correct and incorrect answers
+        let listAnswers = [...listCorrect, ...listIncorrect];
+        // randomize the order of listAnswers
+        listAnswers.sort(() => Math.random() - 0.5);
 
-    question: "On Twitter, what is the character limit for a Tweet?",
-    correct_answer: "140",
-    incorrect_answers: ["120", "160", "100"],
-    answer: [
-      { testo: "140", corretto: true },
-      { testo: "120", corretto: false },
-      { testo: "160", corretto: false },
-      { testo: "100", corretto: false },
-    ],
-  },
-  {
-    type: "boolean",
+        console.log(
+          "correct answer: ",
+          arrQuestions[domandaCorrente].correct_answer
+        );
 
-    question: "Linux was first created as an alternative to Windows XP.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-    answer: [
-      { testo: "False", corretto: true },
-      { testo: "True", corretto: false },
-    ],
-  },
-  {
-    type: "multiple",
+        // check clicked amount so we can target specific multiple selections
+        let checkedCount = 0;
+        let maxChecked = listCorrect.length;
 
-    question:
-      "Which programming language shares its name with an island in Indonesia?",
-    correct_answer: "Java",
-    incorrect_answers: ["Python", "C", "Jakarta"],
-    answer: [
-      { testo: "Java", corretto: true },
-      { testo: "Python", corretto: false },
-      { testo: "C", corretto: false },
-      { testo: "Jakarta", corretto: false },
-    ],
-  },
-];
+        // rendering each answer
+        for (let i = 0; i < listAnswers.length; i++) {
+          const sceltaDiv = document.createElement("div");
+          const scelta = document.createElement("input");
+          const etichetta = document.createElement("label");
 
-let domandaCorrente = 0;
-let punteggio = 0;
-const displayQuestion = function () {
-  const question = document.getElementById("question-container");
-  const ans = document.getElementById("answer-container");
-  const cont = document.getElementById("qCont-Container");
+          scelta.type = "radio";
+          scelta.name = "answer";
+          // scelta.value = i;
+          scelta.value = listAnswers[i];
+          scelta.setAttribute("onclick", "check(event)");
+          scelta.setAttribute("id", i);
+          etichetta.setAttribute("for", i);
+          etichetta.classList.add("forCss");
+          etichetta.textContent = listAnswers[i];
 
-  question.textContent = questions[domandaCorrente].question;
-  ans.innerHTML = "";
-  for (let i = 0; i < questions[domandaCorrente].answer.length; i++) {
-    const sceltaDiv = document.createElement("div");
-    const scelta = document.createElement("input");
-    const etichetta = document.createElement("label");
+          scelta.addEventListener("click", function () {
+            checkedCount += this.checked ? 1 : 0;
+            prossimaDomanda();
+          });
 
-    scelta.type = "radio";
-    scelta.name = "answer";
-    scelta.value = i;
-    scelta.setAttribute("onclick", "check()");
-    scelta.setAttribute("id", i);
-    etichetta.setAttribute("for", i);
-    etichetta.classList.add("forCss");
-    etichetta.textContent = questions[domandaCorrente].answer[i].testo;
+          sceltaDiv.appendChild(scelta);
+          sceltaDiv.appendChild(etichetta);
 
-    sceltaDiv.appendChild(scelta);
-    sceltaDiv.appendChild(etichetta);
-    ans.appendChild(sceltaDiv);
-    if (i !== 0) {
-      resetTimer();
+          ans.appendChild(sceltaDiv);
+          if (i !== 0) {
+            resetTimer();
+            // startTimer()
+          }
+          cont.innerHTML = `<p>QUESTION  ${
+            domandaCorrente + 1
+          }</p><p id="cont">/ ${arrQuestions.length}</p>`;
+        }
+
+        renderTimer(tempoMancante - 1);
+      });
+  };
+
+  // displayQuestion();
+  const start = function () {
+    startTimer();
+    displayQuestion();
+  };
+
+  const prossimaDomanda = function () {
+    if (domandaCorrente < arrQuestions.length - 1) {
+      domandaCorrente++;
+      displayQuestion();
+    } else {
+      document.getElementById("answer-container").remove();
+      document.getElementById("question-container").remove();
+
+      let countAsString = punteggio.toString();
+      console.log(countAsString);
+
+      location.assign(
+        `results.html?amount=${numDomande}&score=${countAsString}`
+      );
+      // calcolaPunteggio();
     }
-    cont.innerHTML = `<p>QUESTION  ${domandaCorrente + 1}</p><p id="cont">/ ${
-      questions.length
-    }</p>`;
-  }
-};
-const start = function () {
-  startTimer();
-  displayQuestion();
-};
+  };
+  start();
+});
 const calcolaPunteggio = function () {
   const totalScore = document.getElementById("score");
   totalScore.textContent = `il tuo punteggio è ${punteggio}`;
 };
-const prossimaDomanda = function () {
-  if (domandaCorrente < questions.length - 1) {
-    domandaCorrente++;
-    displayQuestion();
-  } else {
-    document.getElementById("answer-container").remove();
-    document.getElementById("question-container").remove();
+const check = function (event) {
+  const rispostaSelezionata = document.querySelector(
+    'input[name="answer"]:checked'
+  ).value;
 
-    let countAsString = punteggio.toString();
-    console.log(countAsString);
+  const label = document.querySelector('label[for="' + event.target.id + '"]');
 
-    location.assign(`results.html?score=${countAsString}`);
-    //calcolaPunteggio();
-  }
-};
-
-const check = function () {
-  const rispostaSelezionata = parseInt(
-    document.querySelector('input[name="answer"]:checked').value
-  );
-
-  if (questions[domandaCorrente].answer[rispostaSelezionata].corretto) {
+  if (arrQuestions[domandaCorrente].correct_answer === rispostaSelezionata) {
+    // feedback
+    label.style.background = "green";
     punteggio = punteggio += 1;
-    console.log("corretto");
-    console.log(punteggio);
     prossimaDomanda();
   } else {
+    label.style.background = "red";
     prossimaDomanda();
   }
 };
 //displayQuestion();
-start();
