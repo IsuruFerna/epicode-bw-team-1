@@ -32,7 +32,7 @@ selection.appendChild(hard);
 
 const labelQuestions = document.createElement("label");
 labelQuestions.htmlFor = "questions";
-labelQuestions.innerText = "number of questions";
+labelQuestions.innerText = "Number of questions";
 
 const input = document.createElement("input");
 input.type = "range";
@@ -70,9 +70,9 @@ startLabel.id = "startButton";
 startLabel.innerText = "Start";
 
 divForStartButton.appendChild(startLabel);
-
-document.body.appendChild(divClassForm);
-document.body.appendChild(divForStartButton);
+const startContainer = document.getElementById("start-container");
+startContainer.appendChild(divClassForm);
+startContainer.appendChild(divForStartButton);
 
 //Inizio pagina domande
 
@@ -130,6 +130,23 @@ startQuiz.addEventListener("click", function () {
   let tempoPassato = 0;
   let tempoMancante = timeLimit;
   let intervallo = null;
+  const WARNING_THRESHOLD = 10;
+  const ALERT_THRESHOLD = 5;
+  const COLOR_CODES = {
+    info: {
+      color: "standard",
+    },
+    warning: {
+      color: "orange",
+      threshold: WARNING_THRESHOLD,
+    },
+    alert: {
+      color: "red",
+      threshold: ALERT_THRESHOLD,
+    },
+  };
+  let remainingPathColor = COLOR_CODES.info.color;
+  console.log(remainingPathColor);
 
   const tempoRimanente = function (time) {
     let seconds = time;
@@ -161,8 +178,24 @@ startQuiz.addEventListener("click", function () {
       .getElementById("timer-path")
       .setAttribute("stroke-dasharray", circleDasharray);
   }
+  function setRamainingPathColor() {
+    console.log("ciao");
+    const { alert, warning, info } = COLOR_CODES;
+    console.log(tempoMancante);
+    console.log(alert.threshold);
+    if (tempoMancante - 1 <= alert.threshold) {
+      document.getElementById("timer-path").classList.remove(warning.color);
+      document.getElementById("timer-path").classList.add(alert.color);
+
+      // If the remaining time is less than or equal to 10, remove the base color and apply the "warning" class.
+    } else if (tempoMancante - 1 <= warning.threshold) {
+      document.getElementById("timer-path").classList.remove(info.color);
+      document.getElementById("timer-path").classList.add(warning.color);
+    }
+  }
   const startTimer = function () {
     intervallo = setInterval(() => {
+      setRamainingPathColor();
       tempoPassato++;
       tempoMancante = timeLimit - tempoPassato;
 
@@ -170,6 +203,7 @@ startQuiz.addEventListener("click", function () {
       <p>Seconds</p>${tempoRimanente(tempoMancante)}<p>Remainig</p>`;
       // aggiorno la funzione dentro lo span che visulazzia i secondi rimanenti
       setCircleDasharray();
+
       if (tempoMancante === 0) {
         tempoFinito();
         prossimaDomanda();
@@ -179,6 +213,8 @@ startQuiz.addEventListener("click", function () {
 
   const renderTimer = function (timeRemain) {
     //  timer(circle) code
+    setRamainingPathColor(timeRemain - 1);
+
     const viewTimer = document.getElementById("base-timer");
     viewTimer.innerHTML = `
 <svg class="cTimer-svg"
@@ -190,8 +226,8 @@ startQuiz.addEventListener("click", function () {
             <path
             id="timer-path"
             stroke-dasharray="220"
-            stroke="#00ffff"
-            class="cTimer-path " 
+            
+            class="cTimer-path ${remainingPathColor}" 
             d="
             M 50,50
             m -35,0
@@ -290,7 +326,6 @@ startQuiz.addEventListener("click", function () {
           ans.appendChild(sceltaDiv);
           if (i !== 0) {
             resetTimer();
-            // startTimer()
           }
           cont.innerHTML = `<p>QUESTION  ${
             domandaCorrente + 1
